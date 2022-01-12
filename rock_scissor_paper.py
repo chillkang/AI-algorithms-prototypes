@@ -12,7 +12,7 @@ print ("This is a 'Rock, Scissors, Paper' game. \nType 'rock', 'scissors', or 'p
 
 possible_actions = ["rock", "scissors", "paper"]
 computer_action = random.choice(possible_actions)
-user_action = ["rock, scissors", "paper"]
+user_action = ["rock", "scissors", "paper"]
 
 while user_action != "end":
     
@@ -39,4 +39,4 @@ while user_action != "end":
         print(f"\nYou chose {user_action}, computer chose {computer_action}.\n")    
 
 if user_action == "end":
-    print("\n You ended the game!")
+    print("\nYou ended the game!")
