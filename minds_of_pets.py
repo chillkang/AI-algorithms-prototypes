@@ -31,4 +31,17 @@ duck = {
         }
 
 
+def feed(pet):
+    pet['weight'] = pet['weight'] + 1
     
+def walk(pet):
+    pet['weight'] = pet['weight'] - 1
+    
+def sleep(pet):
+    pet['energy'] = pet['energy'] + 10
+    
+def wake_up(pet):
+    pet['talk']
+    
+def play(pet):
+    pet['energy'] = pet['energy'] - 5
