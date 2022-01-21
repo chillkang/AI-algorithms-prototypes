@@ -10,20 +10,25 @@ dog = {
        'name': 'Aji',
        'weight': 6,
        'photo': 'O o O',
-       'talk': 'baff'
+       'talk': 'baff',
+       'energy': 10
        }
 
 pig = {
        'name': 'Cheese',
        'weight': 5,
        'photo': '^ oo ^',
-       'talk': 'oink'
+       'talk': 'oink',
+       'energy': 5
        }
 
 duck = {
         'name': 'Doo',
         'weight': 4,
         'photo': 'O > O',
-        'talk': 'quack'
+        'talk': 'quack',
+        'energy': 3
         }
 
+
+    
