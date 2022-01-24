@@ -55,11 +55,11 @@ def show_photo(pet):
     
 def play(pet, pet2):
     print("%s plays with her friend %s outside." %(pet['name'], pet2['name']))
-    return pet['name']
+    return pet['name'], pet2['name']
     
 def meet_together(pet, pet2, pet3):
-    print("%s, %s, and %s met together and went to a picnic" %(pet['name'], pet2['name'], pet3['name']))
-    return pet3['name']
+    print("%s, %s, and %s met together and went to a picnic." %(pet['name'], pet2['name'], pet3['name']))
+    return pet['name'], pet2['name'], pet3['name']
 
 play(dog, pig)
 meet_together(dog, pig, duck)
@@ -73,7 +73,10 @@ assert walk(pet) == 6, "pet walk function failed"
 assert sleep(pet) == 20, "pet sleep function failed"
 assert wake_up(pet) == 'baffs', "pet wake_up function failed"
 assert show_photo(pet) == 'O o O', "pet show_photo function failed"
-assert play(pet, pet2) == 'Aji', "pet play function failed"
+assert play(pet, pet2) == ('Aji', 'Cheese'), "pet play function failed"
+assert meet_together(pet, pet2, pet3) == ('Aji', 'Cheese', 'Doo'), "pet meet function failed"
+
+
 
 
 
