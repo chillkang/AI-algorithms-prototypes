@@ -40,8 +40,8 @@ def feed(pet):
     
 def walk(pet):
     pet['weight'] = pet['weight'] - 1
-    print(f"My pet {pet['name']} takes a walk with {pet['friend']} and becomes {pet['weight']}kg.")
-    return pet['weight'], pet['friend']
+    print(f"My pet {pet['name']} takes a walk becomes {pet['weight']}kg.")
+    return pet['weight']
     
 def sleep(pet):
     pet['energy'] = pet['energy'] + 10
@@ -53,20 +53,25 @@ def wake_up(pet):
     return pet['talk']
 
 def show_photo(pet):
-    print(f"My pet {pet['name']}\'s friend {pet['friend']} visits and she shows a photograph of her '{pet['photo']}'.")
-    return pet['friend'], pet['photo']
+    print(f"My pet {pet['name']} shows a photograph of her '{pet['photo']}'.")
+    return pet['photo']
     
 def play(pet):
     pet['energy'] = pet['energy'] - 5
-    print(f"My pet {pet['name']} {pet['talk']}! It's because her energy level got {pet['energy']} and became hungry after playing.")
-    return pet['energy']
+    print(f"My pet {pet['name']} plays with {pet['friend']} outside.")
+    return pet['friend']
     
-feed(dog)
-walk(dog)
-sleep(dog)
-wake_up(dog)
-show_photo(dog)
-play(dog)
+
+
+#unit test
+pet = dog
+assert feed(pet) == 7, "pet feed function failed"
+assert walk(pet) == 6, "pet walk function failed"
+assert sleep(pet) == 20, "pet sleep function failed"
+assert wake_up(pet) == 'baffs', "pet wake_up function failed"
+assert show_photo(pet) == 'O o O', "pet show_photo function failed"
+assert play(pet) == 'Cheese', "pet play function failed"
+
 
 
 
