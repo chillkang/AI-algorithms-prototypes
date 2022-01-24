@@ -46,17 +46,19 @@ def sleep(pet):
     return pet['energy']
     
 def wake_up(pet):
-    print(f"My pet, {pet['name']} wakes up and", pet['talk'], "!")
+    print(f"My pet {pet['name']} wakes up and {pet['talk']}!")
     return pet['talk']
     
 def play(pet):
     pet['energy'] = pet['energy'] - 5
+    print(f"My pet {pet['name']} {pet['talk']} because her energy level got {pet['energy']} and became hungry after playing outside.")
     return pet['energy']
     
 feed(dog)
 walk(dog)
 sleep(dog)
 wake_up(dog)
+play(dog)
 
 
 
