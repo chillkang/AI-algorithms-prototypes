@@ -30,9 +30,9 @@ duck = {
         'energy': 3
         }
 
-
 def feed(pet):
     pet['weight'] = pet['weight'] + 1
+    print(f"My pet, {pet['name']} eats and becomes {pet['weight']}kg.")
     return pet['weight']
     
 def walk(pet):
@@ -41,18 +41,19 @@ def walk(pet):
     
 def sleep(pet):
     pet['energy'] = pet['energy'] + 10
-    
+    return pet['energy']
     
 def wake_up(pet):
     print(f"My pet, {pet['name']} wakes up and", pet['talk'], "!")
+    return pet['talk']
     
 def play(pet):
     pet['energy'] = pet['energy'] - 5
+    return pet['energy']
     
-print(dog['weight'])
-
+feed(dog)
+feed(dog)
 wake_up(dog)
 
-#unit test
-pet = dog # define your test variable
-assert feed(dog) == 7, "dog function test failed" 
+
+
