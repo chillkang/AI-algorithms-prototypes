@@ -51,7 +51,7 @@ def wake_up(pet):
     
 def play(pet):
     pet['energy'] = pet['energy'] - 5
-    print(f"My pet {pet['name']} {pet['talk']} because her energy level got {pet['energy']} and became hungry after playing outside.")
+    print(f"My pet {pet['name']} {pet['talk']}! It's because her energy level got {pet['energy']} and became hungry after playing.")
     return pet['energy']
     
 feed(dog)
