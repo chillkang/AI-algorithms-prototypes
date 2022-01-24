@@ -37,6 +37,7 @@ def feed(pet):
     
 def walk(pet):
     pet['weight'] = pet['weight'] - 1
+    print(f"My pet, takes a walk outside and becomes {pet['weight']}kg.")
     return pet['weight']
     
 def sleep(pet):
@@ -53,6 +54,7 @@ def play(pet):
     
 feed(dog)
 feed(dog)
+walk(dog)
 wake_up(dog)
 
 
