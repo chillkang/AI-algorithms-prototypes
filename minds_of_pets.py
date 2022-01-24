@@ -32,16 +32,17 @@ duck = {
 
 def feed(pet):
     pet['weight'] = pet['weight'] + 1
-    print(f"My pet, {pet['name']} eats and becomes {pet['weight']}kg.")
+    print(f"My pet {pet['name']} eats and becomes {pet['weight']}kg.")
     return pet['weight']
     
 def walk(pet):
     pet['weight'] = pet['weight'] - 1
-    print(f"My pet, takes a walk outside and becomes {pet['weight']}kg.")
+    print(f"My pet {pet['name']} takes a walk outside and becomes {pet['weight']}kg.")
     return pet['weight']
     
 def sleep(pet):
     pet['energy'] = pet['energy'] + 10
+    print(f"My pet {pet['name']}\'s energy level got {pet['energy']} during sleep.")
     return pet['energy']
     
 def wake_up(pet):
@@ -53,8 +54,8 @@ def play(pet):
     return pet['energy']
     
 feed(dog)
-feed(dog)
 walk(dog)
+sleep(dog)
 wake_up(dog)
 
 
