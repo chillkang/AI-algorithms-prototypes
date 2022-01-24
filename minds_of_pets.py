@@ -11,7 +11,8 @@ dog = {
        'weight': 6,
        'photo': 'O o O',
        'talk': 'baffs',
-       'energy': 10
+       'energy': 10,
+       'friend': 'Cheese'
        }
 
 pig = {
@@ -19,7 +20,8 @@ pig = {
        'weight': 5,
        'photo': '^ oo ^',
        'talk': 'oinks',
-       'energy': 5
+       'energy': 5,
+       'friend': 'Doo'
        }
 
 duck = {
@@ -27,7 +29,8 @@ duck = {
         'weight': 4,
         'photo': 'O > O',
         'talk': 'quacks',
-        'energy': 3
+        'energy': 3,
+        'friend': 'Aji and Cheese'
         }
 
 def feed(pet):
@@ -37,8 +40,8 @@ def feed(pet):
     
 def walk(pet):
     pet['weight'] = pet['weight'] - 1
-    print(f"My pet {pet['name']} takes a walk outside and becomes {pet['weight']}kg.")
-    return pet['weight']
+    print(f"My pet {pet['name']} takes a walk with {pet['friend']} and becomes {pet['weight']}kg.")
+    return pet['weight'], pet['friend']
     
 def sleep(pet):
     pet['energy'] = pet['energy'] + 10
