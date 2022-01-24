@@ -30,7 +30,7 @@ duck = {
         'photo': 'O > O',
         'talk': 'quacks',
         'energy': 3,
-        'friend': 'Aji and Cheese'
+        'friend': 'Aji'
         }
 
 def feed(pet):
@@ -51,6 +51,10 @@ def sleep(pet):
 def wake_up(pet):
     print(f"My pet {pet['name']} wakes up and {pet['talk']}!")
     return pet['talk']
+
+def show_photo(pet):
+    print(f"My pet {pet['name']}\'s friend {pet['friend']} visits and she shows a photograph of her '{pet['photo']}'.")
+    return pet['friend'], pet['photo']
     
 def play(pet):
     pet['energy'] = pet['energy'] - 5
@@ -61,6 +65,7 @@ feed(dog)
 walk(dog)
 sleep(dog)
 wake_up(dog)
+show_photo(dog)
 play(dog)
 
 
