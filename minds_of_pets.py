@@ -5,6 +5,7 @@ Created on Sun Jan 16 21:50:19 2022
 
 @author: seulkeekang
 """
+#I created three pets in dictionaries. Each pet has a name, identifying characteristics(weight, energy, sounds of talking) and a photo. 
 
 dog = {
        'name': 'Aji',
@@ -29,6 +30,10 @@ duck = {
         'talk': 'quacks',
         'energy': 3,
         }
+
+#There are six functions of three pets for eating, walking, sleeping, waking up, showing photo, playing, and meeting together. 
+#Depending on the function, they gain and lose weight or energy. For instance, they lose 1 kg after taking a walk outside. 
+#They can also talk, show their photos, and interact with other pets. For the last two functions, they can play and meet other pets.
 
 def feed(pet):
     pet['weight'] = pet['weight'] + 1
@@ -62,8 +67,11 @@ def meet_together(pet, pet2, pet3):
     print("%s, %s, and %s meet together and go to a picnic." %(pet['name'], pet2['name'], pet3['name']))
     return pet['name'], pet2['name'], pet3['name']
 
+#This is a unit test for the 6 functions of pets. 
+#I first assigned pet, pet2, and pet3 variables and pass them as arguments of the functions. 
+#By using assert statements, I can test whether the function passes the test. 
+#If the function returns its output correctly, it passes the test but if not, it prints out fail messages in double quotations.
 
-#unit test
 pet = dog
 pet2 = pig
 pet3 = duck
@@ -73,7 +81,7 @@ assert sleep(pet) == ('Aji', 20), "pet sleep function failed"
 assert wake_up(pet) == ('Aji','baffs'), "pet wake_up function failed"
 assert show_photo(pet) == ('Aji','O o O'), "pet show_photo function failed"
 assert play(pet, pet2) == ('Aji', 'Cheese', 17), "pet play function failed"
-assert meet_together(pet, pet2, pet3) == ('Aji', 'Cheese', 'Doo'), "pet meet function failed"
+assert meet_together(pet, pet2, pet3) == ('Aji', 'Cheese', 'Doo'), "pet meet_together function failed"
 
 
 
