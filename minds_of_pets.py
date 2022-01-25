@@ -51,7 +51,7 @@ def wake_up(pet):
 
 def show_photo(pet):
     print(f"{pet['name']} shows a photograph of her '{pet['photo']}'.")
-    return pet['photo']
+    return pet['name'], pet['photo']
     
 def play(pet, pet2):
     pet['energy'] = pet['energy'] - 3
@@ -71,7 +71,7 @@ assert feed(pet) == 7, "pet feed function failed"
 assert walk(pet) == 6, "pet walk function failed"
 assert sleep(pet) == ('Aji', 20), "pet sleep function failed"
 assert wake_up(pet) == ('Aji','baffs'), "pet wake_up function failed"
-assert show_photo(pet) == 'O o O', "pet show_photo function failed"
+assert show_photo(pet) == ('Aji','O o O'), "pet show_photo function failed"
 assert play(pet, pet2) == ('Aji', 'Cheese', 17), "pet play function failed"
 assert meet_together(pet, pet2, pet3) == ('Aji', 'Cheese', 'Doo'), "pet meet function failed"
 
