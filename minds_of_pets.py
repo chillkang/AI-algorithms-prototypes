@@ -37,17 +37,17 @@ def feed(pet):
     
 def walk(pet):
     pet['weight'] = pet['weight'] - 1
-    print(f"{pet['name']} takes a walk becomes {pet['weight']}kg.")
+    print(f"{pet['name']} takes a walk outside becomes {pet['weight']}kg.")
     return pet['weight']
     
 def sleep(pet):
     pet['energy'] = pet['energy'] + 10
-    print(f"{pet['name']}\'s energy level got {pet['energy']} during sleep.")
-    return pet['energy']
+    print(f"{pet['name']}\'s energy level got {pet['energy']} during sleep and {pet['name']} is ready to play.")
+    return pet['name'], pet['energy']
     
 def wake_up(pet):
     print(f"{pet['name']} wakes up and {pet['talk']}!")
-    return pet['talk']
+    return pet['name'], pet['talk']
 
 def show_photo(pet):
     print(f"{pet['name']} shows a photograph of her '{pet['photo']}'.")
@@ -59,7 +59,7 @@ def play(pet, pet2):
     return pet['name'], pet2['name'], pet['energy']
     
 def meet_together(pet, pet2, pet3):
-    print("%s, %s, and %s met together and went to a picnic." %(pet['name'], pet2['name'], pet3['name']))
+    print("%s, %s, and %s meet together and go to a picnic." %(pet['name'], pet2['name'], pet3['name']))
     return pet['name'], pet2['name'], pet3['name']
 
 
@@ -69,8 +69,8 @@ pet2 = pig
 pet3 = duck
 assert feed(pet) == 7, "pet feed function failed"
 assert walk(pet) == 6, "pet walk function failed"
-assert sleep(pet) == 20, "pet sleep function failed"
-assert wake_up(pet) == 'baffs', "pet wake_up function failed"
+assert sleep(pet) == ('Aji', 20), "pet sleep function failed"
+assert wake_up(pet) == ('Aji','baffs'), "pet wake_up function failed"
 assert show_photo(pet) == 'O o O', "pet show_photo function failed"
 assert play(pet, pet2) == ('Aji', 'Cheese', 17), "pet play function failed"
 assert meet_together(pet, pet2, pet3) == ('Aji', 'Cheese', 'Doo'), "pet meet function failed"
