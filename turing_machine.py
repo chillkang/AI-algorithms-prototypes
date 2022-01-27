@@ -48,3 +48,14 @@ class Tape:
                 del self._tape[-1:]
             else:
                 break
+            
+    def move_head(self, direction):
+        if direction == Direction.Right:
+            self.head_position += 1
+        elif direction == Direction.Left:
+            self.head_position -= 1
+ 
+        if self.head_position > len(self._tape) - 1:
+            self._tape += '#'
+        if self.head_position < 0:
+            self.head_position = 0
