@@ -59,3 +59,7 @@ class Tape:
             self._tape += '#'
         if self.head_position < 0:
             self.head_position = 0
+            
+    def get_length(self):
+        return len(self._tape)
+ 
