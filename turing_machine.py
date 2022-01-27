@@ -96,6 +96,8 @@ class TuringMachine:
     
     def process(self, verbose=False):
         current_state = self.start_state
+        step = 0
+        self._log_process(step)
  
         while current_state.type != StateType.Final:
             current_char = self.tape.read()
@@ -109,6 +111,9 @@ class TuringMachine:
  
             self.tape.write(transition.new_char)
             self.tape.move_head(transition.direction)
+            
+            step += 1
+            self._log_process(step)
  
     def _log_process(self, step):
         print('\nTape after step {0}: '.format(step))
