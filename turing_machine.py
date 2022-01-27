@@ -87,5 +87,12 @@ class TuringMachine:
         self.start_state = self.get_start_state()
         self.transitions = transitions
         self.tape = tape
+        
+    def get_tape(self):
+        return self.tape.get_tape()
+ 
+    def get_start_state(self):
+        return next(state for state in self.states if state.type == StateType.Start)
+ 
      
  
