@@ -25,3 +25,12 @@ class Tape:
             tape += char
         tape += "#";
         self._tape = list(tape)
+        
+    def write(self, character):
+        if self.head_position < 1 or character not in self.alphabet:
+            return
+        self._tape[self.head_position] = character
+ 
+        last_item_index = len(self._tape) - 1
+        if self.head_position == last_item_index:
+            self._tape += '#'
