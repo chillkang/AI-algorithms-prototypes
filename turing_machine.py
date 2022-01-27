@@ -110,5 +110,16 @@ class TuringMachine:
             self.tape.write(transition.new_char)
             self.tape.move_head(transition.direction)
  
+    def _log_process(self, step):
+        print('\nTape after step {0}: '.format(step))
+        print('[', end='')
      
+        for i in range(0, self.tape.get_length()):
+            if self.tape.head_position == i:
+                print("\033[4m" + self.tape._tape[i] + "\033[0m", end='')
+            else:
+                print(self.tape._tape[i], end='')
+     
+        print(']')
+         
  
