@@ -80,4 +80,12 @@ class Transition:
         self.new_state = new_state
         self.new_char = new_char
         self.direction = direction
+        
+class TuringMachine:
+    def __init__(self, states, transitions, tape):
+        self.states = states
+        self.start_state = self.get_start_state()
+        self.transitions = transitions
+        self.tape = tape
+     
  
