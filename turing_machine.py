@@ -37,3 +37,14 @@ class Tape:
             
     def read(self):
         return self._tape[self.head_position]
+    
+    def get_tape(self):
+        self._remove_trailing_sharps()
+        return ''.join(self._tape)
+    
+    def _remove_trailing_sharps(self):
+        for i in range(len(self._tape) - 1, 1, -1):
+            if self._tape[i] == '#' and self._tape[i-1] == '#':
+                del self._tape[-1:]
+            else:
+                break
