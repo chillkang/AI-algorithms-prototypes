@@ -34,3 +34,6 @@ class Tape:
         last_item_index = len(self._tape) - 1
         if self.head_position == last_item_index:
             self._tape += '#'
+            
+    def read(self):
+        return self._tape[self.head_position]
