@@ -127,4 +127,28 @@ class TuringMachine:
      
         print(']')
          
+tape = Tape('|||&||', '|&')
+states = [
+            State("s0", StateType.Start),
+            State("s1", StateType.Empty),
+            State("s2", StateType.Empty),
+            State("s3", StateType.Empty),
+            State("s4", StateType.Empty),
+            State("sf", StateType.Final)
+         ]
+ 
+transitions = [
+                 Transition("s0", "$", "s1", "$", Direction.Right),
+                 Transition("s1", "#", "sf", "#", Direction.Neutral),
+                 Transition("s1", "|", "s1", "|", Direction.Right),
+                 Transition("s1", "&", "s2", "|", Direction.Right),
+                 Transition("s2", "|", "s2", "|", Direction.Right),
+                 Transition("s2", "#", "s3", "#", Direction.Left),
+                 Transition("s3", "|", "s4", "#", Direction.Left),
+                 Transition("s4", "|", "s4", "|", Direction.Left),
+                 Transition("s4", "$", "sf", "$", Direction.Neutral),
+              ]
+ 
+tm = TuringMachine(states, transitions, tape)
+tm.process(True)
  
