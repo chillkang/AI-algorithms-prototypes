@@ -191,11 +191,23 @@ def reconstruct_path(came_from: Dict[Location, Location],
 #     return abs(x1 - x2) + abs(y1 - y2)
 # =============================================================================
 
-def heuristic(a: GridLocation, b: GridLocation) -> float:
-    D = 1.5
-    (x1, y1) = a
-    (x2, y2) = b
-    return D * abs(x1 - x2) + abs(y1 - y2)
+# =============================================================================
+# def heuristic(a: GridLocation, b: GridLocation) -> float:
+#     D = 1.5
+#     (x1, y1) = a
+#     (x2, y2) = b
+#     return D * abs(x1 - x2) + abs(y1 - y2)
+# =============================================================================
+
+# euclidian distance 
+# =============================================================================
+# def heuristic(a: GridLocation, b: GridLocation) -> float:
+#     D = 2
+#     (x1, x2) = a
+#     (y1, y2) = b
+#     return D * math.sqrt(abs(x1 - x2) * abs(x1 - x2) + abs(y1 - y2) * abs(y1 - y2))
+# =============================================================================
+
 
 def a_star_search(graph: WeightedGraph, start: Location, goal: Location):
     frontier = PriorityQueue()
