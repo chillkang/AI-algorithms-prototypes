@@ -184,10 +184,18 @@ def reconstruct_path(came_from: Dict[Location, Location],
     path.reverse() # optional
     return path
 
+# =============================================================================
+# def heuristic(a: GridLocation, b: GridLocation) -> float:
+#     (x1, y1) = a
+#     (x2, y2) = b
+#     return abs(x1 - x2) + abs(y1 - y2)
+# =============================================================================
+
 def heuristic(a: GridLocation, b: GridLocation) -> float:
+    D = 1.5
     (x1, y1) = a
     (x2, y2) = b
-    return abs(x1 - x2) + abs(y1 - y2)
+    return D * abs(x1 - x2) + abs(y1 - y2)
 
 def a_star_search(graph: WeightedGraph, start: Location, goal: Location):
     frontier = PriorityQueue()
@@ -264,8 +272,8 @@ class GridWithAdjustedWeights(GridWithWeights):
     
 # define graph with walls and weighted areas
 g = GridWithWeights(30, 30)
-g.walls = [(1, 7), (1, 8),(2, 7), (2, 8),(3, 7),(3, 8),(4, 7),(4, 8),(5, 7),(5, 8),(10, 10),(10, 11),(11, 10), (11, 11), (12, 10), (12, 11),(13, 7),(13, 8),(13, 10), (13, 11)]
-g.weights = {loc: 10 for loc in [(0,1),(0,2),(0,3),(6,7),(7,7),(8,7),(9,12)]}
+g.walls = [(1,7),(1,8),(2,7),(2,8),(3,7),(3,8),(4,7),(4,8),(5,7),(5,8),(10,10),(10,11),(11,10),(11,11),(12,10),(12,11),(13,7),(13, 8),(13,10),(13,11),(14,15),(15,15),(16,15),(18,15)]
+g.weights = {loc: 10 for loc in [(0,1),(0,2),(0,3),(6,7),(7,7),(8,7),(9,12),(14,14),(17,15)]}
 # define start/goal locations
 start = (0, 0)
 goal = (25, 25)
