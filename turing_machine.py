@@ -5,6 +5,10 @@ Created on Thu Jan 27 17:05:23 2022
 
 @author: seulkeekang
 """
+# =============================================================================
+# Sample code from https://cheesyprogrammer.com/2017/12/19/creating-a-turing-machine-in-python-part-2/
+# https://cheesyprogrammer.com/2017/12/22/creating-a-turing-machine-in-python-part-3/
+# =============================================================================
 
 from enum import Enum
  
@@ -126,31 +130,31 @@ class TuringMachine:
                 print(self.tape._tape[i], end='')
      
         print(']')
-         
-# =============================================================================
-# tape = Tape('||&||', '|&')
-# states = [
-#             State("s0", StateType.Start),
-#             State("s1", StateType.Empty),
-#             State("s2", StateType.Empty),
-#             State("s3", StateType.Empty),
-#             State("s4", StateType.Final),
-#          ]
-#  
-# transitions = [
-#                  Transition("s0", "$", "s1", "$", Direction.Right),
-#                  Transition("s1", "|", "s1", "|", Direction.Right),
-#                  Transition("s1", "&", "s2", "|", Direction.Right),
-#                  Transition("s2", "|", "s2", "|", Direction.Right),
-#                  Transition("s2", "#", "s3", "#", Direction.Left),
-#                  Transition("s3", "|", "s4", "#", Direction.Neutral),
-#               ]
-#  
-# tm = TuringMachine(states, transitions, tape)
-# tm.process(True)
-# print(tm.get_tape())
-# =============================================================================
  
+# test for addition        
+tape = Tape('||&||', '|&')
+states = [
+            State("s0", StateType.Start),
+            State("s1", StateType.Empty),
+            State("s2", StateType.Empty),
+            State("s3", StateType.Empty),
+            State("s4", StateType.Final),
+         ]
+ 
+transitions = [
+                 Transition("s0", "$", "s1", "$", Direction.Right),
+                 Transition("s1", "|", "s1", "|", Direction.Right),
+                 Transition("s1", "&", "s2", "|", Direction.Right),
+                 Transition("s2", "|", "s2", "|", Direction.Right),
+                 Transition("s2", "#", "s3", "#", Direction.Left),
+                 Transition("s3", "|", "s4", "#", Direction.Neutral),
+              ]
+ 
+tm = TuringMachine(states, transitions, tape)
+tm.process(True)
+print(tm.get_tape())
+ 
+# test for subtraction
 tape = Tape('|||#||', '|#')
 states = [
             State("s0", StateType.Start),
