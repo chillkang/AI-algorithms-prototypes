@@ -191,6 +191,7 @@ def reconstruct_path(came_from: Dict[Location, Location],
 #     return abs(x1 - x2) + abs(y1 - y2)
 # 
 # =============================================================================
+#Manhattan Distance for the heuristic
 def heuristic(a: GridLocation, b: GridLocation) -> float:
     D = 1.01
     (x1, y1) = a
@@ -297,17 +298,21 @@ g.walls = [(1,28),(2,28),(3,28),(4,28),(5,26),(6,23),(7,23),(8,23),(9,23),(10,24
            (6,28),(7,28),(8,28),(9,28),(10,28),(11,28),(12,28),(12,27),(12,26),(12,25),
            (12,24),(12,23),(12,22),(12,21),(12,20),(12,19),(11,18),(12,18)]
 g.weights = {loc: 5 for loc in [(6,22),(7,21),(7,22)]}
+
 # define start/goal locations
 start = (2, 29)
 goal = (11, 17)
+
 # BFS search
 parents = breadth_first_search(g, start, goal)
 draw_grid(g, point_to=parents, start=start, goal=goal)
 draw_grid(g,path=reconstruct_path(parents, start=start, goal=goal))
+
 # Uniform cost (Dijkstra algorithm) 
 came_from, cost_so_far = dijkstra_search(g, start, goal)
 draw_grid(g, point_to=came_from, start=start, goal=goal)
 draw_grid(g, path=reconstruct_path(came_from, start=start, goal=goal))
+
 # A* algorithm with Euclidean distance heuristic
 came_from, cost_so_far = a_star_search(g, start, goal)
 draw_grid(g, point_to=came_from, start=start, goal=goal)
