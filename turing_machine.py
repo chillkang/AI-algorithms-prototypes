@@ -128,7 +128,7 @@ class TuringMachine:
         print(']')
          
 # =============================================================================
-# tape = Tape('|||&||', '|&')
+# tape = Tape('||&||', '|&')
 # states = [
 #             State("s0", StateType.Start),
 #             State("s1", StateType.Empty),
@@ -139,12 +139,10 @@ class TuringMachine:
 #  
 # transitions = [
 #                  Transition("s0", "$", "s1", "$", Direction.Right),
-#                  Transition("s1", "#", "sf", "#", Direction.Neutral),
 #                  Transition("s1", "|", "s1", "|", Direction.Right),
 #                  Transition("s1", "&", "s2", "|", Direction.Right),
 #                  Transition("s2", "|", "s2", "|", Direction.Right),
 #                  Transition("s2", "#", "s3", "#", Direction.Left),
-#                  
 #                  Transition("s3", "|", "s4", "#", Direction.Neutral),
 #               ]
 #  
@@ -153,7 +151,7 @@ class TuringMachine:
 # print(tm.get_tape())
 # =============================================================================
  
-tape = Tape('|||#||', '|&')
+tape = Tape('|||#||', '|#')
 states = [
             State("s0", StateType.Start),
             State("s1", StateType.Empty),
@@ -169,7 +167,6 @@ states = [
  
 transitions = [
                  Transition("s0", "$", "s0", "$", Direction.Right),
-                 #Transition("s0", "#", "sf", "#", Direction.Neutral),
                  Transition("s0", "|", "s1", "|", Direction.Right),
                  Transition("s1", "|", "s1", "|", Direction.Right),
                  Transition("s1", "#", "s2", "#", Direction.Right),
@@ -180,10 +177,8 @@ transitions = [
                  Transition("s4", "|", "s5", "#", Direction.Left),
                  Transition("s5", "#", "s5", "#", Direction.Left),
                  Transition("s5", "|", "s2", "#", Direction.Right),
-                 #Transition("s5", "$", "s2", "$", Direction.Right),
                  Transition("s6", "|", "s7", "#", Direction.Left),
                  Transition("s7", "#", "s7", "#", Direction.Left),
-                 #Transition("s7", "$", "sf", "$", Direction.Neutral),
                  Transition("s7", "|", "s8", "#", Direction.Left),
                  Transition("s8", "|", "s8", "|", Direction.Left),
                  Transition("s8", "$", "sf", "$", Direction.Neutral)
@@ -192,3 +187,4 @@ transitions = [
 tm = TuringMachine(states, transitions, tape)
 tm.process(True)
 print(tm.get_tape())
+
