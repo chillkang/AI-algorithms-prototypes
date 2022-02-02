@@ -1,5 +1,5 @@
 # AI-algorithms-prototypes
-developing and building prototypes of AI 
+developing and building prototypes of AI algorithms
 
 # Topics covered:
 * computer vision
