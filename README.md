@@ -1,7 +1,7 @@
 # AI-algorithms-prototypes
 developing and building prototypes of AI 
 
-# Topics covered
+# Topics covered:
 * computer vision
 * natural language processing
 * reinforcement learning/control theory
