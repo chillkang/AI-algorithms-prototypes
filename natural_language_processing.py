@@ -18,9 +18,19 @@ from nltk.corpus import wordnet
 # print(syn[0].examples())
 # =============================================================================
 
-synonyms = []
-for syn in wordnet.synsets('pain'):
-        for lemma in syn.lemmas():
-            synonyms.append(lemma.name())
+# =============================================================================
+# synonyms = []
+# for syn in wordnet.synsets('pain'):
+#         for lemma in syn.lemmas():
+#             synonyms.append(lemma.name())
+# 
+# print(synonyms)
+# =============================================================================
 
-print(synonyms)
+antonyms = []
+for syn in wordnet.synsets('pain'):
+        for l in syn.lemmas():
+            if l.antonyms():
+                antonyms.append(l.antonyms()[0].name())
+
+print(antonyms)
