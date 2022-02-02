@@ -37,14 +37,25 @@ import nltk
 # print(antonyms)
 # =============================================================================
 
-from nltk.corpus import swadesh
+# =============================================================================
+# from nltk.corpus import swadesh
+# =============================================================================
 # =============================================================================
 # print(swadesh.fileids())
 # print(swadesh.words('en'))
 # =============================================================================
 
-fr2en = swadesh.entries(['fr', 'en'])
-print(fr2en)
-translate = dict(fr2en)
-print(translate['chien'])
-print(translate['jeter'])
+# =============================================================================
+# fr2en = swadesh.entries(['fr', 'en'])
+# print(fr2en)
+# translate = dict(fr2en)
+# print(translate['chien'])
+# print(translate['jeter'])
+# =============================================================================
+import random
+from nltk.corpus import movie_reviews
+documents = [(list(movie_reviews.words(fileid)), category)
+             for category in movie_reviews.categories()
+             for fileid in movie_reviews.fileids(category)]
+
+print(random.shuffle(documents))
