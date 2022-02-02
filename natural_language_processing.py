@@ -12,6 +12,15 @@ nltk.download('book')
 #text2.common_contexts(["monstrous", "very"])
 
 from nltk.corpus import wordnet
-syn = wordnet.synsets('pain')
-print(syn[0].definition())
-print(syn[0].examples())
+# =============================================================================
+# syn = wordnet.synsets('pain')
+# print(syn[0].definition())
+# print(syn[0].examples())
+# =============================================================================
+
+synonyms = []
+for syn in wordnet.synsets('pain'):
+        for lemma in syn.lemmas():
+            synonyms.append(lemma.name())
+
+print(synonyms)
