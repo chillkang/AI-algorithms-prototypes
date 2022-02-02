@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import nltk
-nltk.download('book')
+# =============================================================================
+# nltk.download('book')
+# 
+# from nltk.book import *
+# print(text1, text2, text3, text4, text5, text6, text7, text8, text9)
+# =============================================================================
 
-from nltk.book import *
-print(text1, text2, text3, text4, text5, text6, text7, text8, text9, text10)
 #text1.concordance("monstrous")
 
 #text1.similar("monstrous")
