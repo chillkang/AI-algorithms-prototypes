@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import nltk
-#nltk.download('book')
+nltk.download('book')
 
-#from nltk.book import *
+from nltk.book import *
+print(text1, text2, text3, text4, text5, text6, text7, text8, text9, text10)
 #text1.concordance("monstrous")
 
 #text1.similar("monstrous")
@@ -53,35 +54,37 @@ import nltk
 # print(translate['jeter'])
 # =============================================================================
 
-import random
-
-from nltk.corpus import movie_reviews
-documents = [(list(movie_reviews.words(fileid)), category)
-             for category in movie_reviews.categories()
-             for fileid in movie_reviews.fileids(category)]
-
-print(random.shuffle(documents))
-
-all_words = nltk.FreqDist(w.lower() for w in movie_reviews.words())
-word_features = list(all_words)[:2000] 
-
-def document_features(document): 
-    document_words = set(document) 
-    features = {}
-    for word in word_features:
-        features['contains({})'.format(word)] = (word in document_words)
-    return features
-
-#print(document_features(movie_reviews.words('pos/cv957_8737.txt'))) 
-
-
-featuresets = [(document_features(d), c) for (d,c) in documents]
-train_set, test_set = featuresets[100:], featuresets[:100]
-classifier = nltk.NaiveBayesClassifier.train(train_set)
-
-print(nltk.classify.accuracy(classifier, test_set))
-
-classifier.show_most_informative_features(5) 
+# =============================================================================
+# import random
+# 
+# from nltk.corpus import movie_reviews
+# documents = [(list(movie_reviews.words(fileid)), category)
+#              for category in movie_reviews.categories()
+#              for fileid in movie_reviews.fileids(category)]
+# 
+# print(random.shuffle(documents))
+# 
+# all_words = nltk.FreqDist(w.lower() for w in movie_reviews.words())
+# word_features = list(all_words)[:2000] 
+# 
+# def document_features(document): 
+#     document_words = set(document) 
+#     features = {}
+#     for word in word_features:
+#         features['contains({})'.format(word)] = (word in document_words)
+#     return features
+# 
+# #print(document_features(movie_reviews.words('pos/cv957_8737.txt'))) 
+# 
+# 
+# featuresets = [(document_features(d), c) for (d,c) in documents]
+# train_set, test_set = featuresets[100:], featuresets[:100]
+# classifier = nltk.NaiveBayesClassifier.train(train_set)
+# 
+# print(nltk.classify.accuracy(classifier, test_set))
+# 
+# classifier.show_most_informative_features(5) 
+# =============================================================================
 
 
 
