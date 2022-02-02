@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import nltk
-nltk.download('book')
+#nltk.download('book')
 
 #from nltk.book import *
 #text1.concordance("monstrous")
@@ -11,7 +11,7 @@ nltk.download('book')
 
 #text2.common_contexts(["monstrous", "very"])
 
-from nltk.corpus import wordnet
+#from nltk.corpus import wordnet
 # =============================================================================
 # syn = wordnet.synsets('pain')
 # print(syn[0].definition())
@@ -27,10 +27,16 @@ from nltk.corpus import wordnet
 # print(synonyms)
 # =============================================================================
 
-antonyms = []
-for syn in wordnet.synsets('pain'):
-        for l in syn.lemmas():
-            if l.antonyms():
-                antonyms.append(l.antonyms()[0].name())
+# =============================================================================
+# antonyms = []
+# for syn in wordnet.synsets('pain'):
+#         for l in syn.lemmas():
+#             if l.antonyms():
+#                 antonyms.append(l.antonyms()[0].name())
+# 
+# print(antonyms)
+# =============================================================================
 
-print(antonyms)
+from nltk.corpus import swadesh
+print(swadesh.fileids())
+print(swadesh.words('en'))
