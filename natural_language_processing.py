@@ -105,12 +105,65 @@ import nltk
 # text7.concordance("however")
 # text8.concordance("however")
 # text9.concordance("however")
+# 
+# from nltk.corpus import wordnet
+# syn = wordnet.synsets('however')
+# print(syn[4].definition())
+# print(syn[4].examples())
 # =============================================================================
 
-#Exercise 4
+# =============================================================================
+# despite anything to the contrary (usually following a concession)
+# ["although I'm a little afraid, however I'd like to try it", 
+# 'while we disliked each other, nevertheless we agreed', 'he was a stern yet fair master', 
+# 'granted that it is dangerous, all the same I still want to go']
+# 
+# =============================================================================
 
 # =============================================================================
-from nltk.corpus import swadesh
+# by contrast; on the other hand
+# ['the first part was easy; the second, however, took hours']
+# =============================================================================
+
+# =============================================================================
+# in whatever way or manner
+# ['Victory, however it was brought about, was sweet', 'however he did it, it was very clever']
+# =============================================================================
+
+#Exercise 3
+nltk.download('book')
+
+from nltk.book import *
+# =============================================================================
+# print(text1, text2, text3, text4, text5, text6, text7, text8, text9)
+# <Text: Moby Dick by Herman Melville 1851> <Text: Sense and Sensibility by Jane Austen 1811> 
+# <Text: The Book of Genesis> <Text: Inaugural Address Corpus> <Text: Chat Corpus> 
+# <Text: Monty Python and the Holy Grail> <Text: Wall Street Journal> <Text: Personals Corpus> 
+# <Text: The Man Who Was Thursday by G . K . Chesterton 1908>
+# 
+# =============================================================================
+
+text2.similar("love") 
+# =============================================================================
+# affection sister heart mother time see town life it dear elinor 
+# marianne me word family her him do regard head
+# =============================================================================
+
+text3.similar("love")
+# =============================================================================
+# went drank earth darkness morning se them give nig hath man had thus
+# not took keep die call sle woman
+# =============================================================================
+
+
+
+
+
+
+# =============================================================================
+# #Exercise 4
+# 
+# from nltk.corpus import swadesh
 # en2it = swadesh.entries(['en', 'it'])
 # translate = dict(en2it)
 # print(translate['mountain']) #montagna
@@ -118,9 +171,6 @@ from nltk.corpus import swadesh
 # print(translate['eat']) #mangiare
 # print(translate['forest']) #foresta
 # 
-# =============================================================================
-
-# =============================================================================
 # en2es = swadesh.entries(['en', 'es'])
 # translate = dict(en2es)
 # print(translate['mountain']) #montaña
@@ -128,22 +178,22 @@ from nltk.corpus import swadesh
 # print(translate['eat']) #comer
 # print(translate['forest']) #bosque
 # 
+# 
+# en2fr = swadesh.entries(['en', 'fr'])
+# translate = dict(en2fr)
+# print(translate['mountain']) #montagne
+# print(translate['wind']) #vent
+# print(translate['eat']) #manger
+# print(translate['forest']) #forêt
+# 
+# en2sl = swadesh.entries(['en', 'sl'])
+# translate = dict(en2sl)
+# print(translate['mountain']) #gora
+# print(translate['wind']) #veter
+# print(translate['eat']) #jesti
+# print(translate['forest']) #gozd
+# 
 # =============================================================================
-
-en2fr = swadesh.entries(['en', 'fr'])
-translate = dict(en2fr)
-print(translate['mountain']) #montagne
-print(translate['wind']) #vent
-print(translate['eat']) #manger
-print(translate['forest']) #forêt
-
-en2sl = swadesh.entries(['en', 'sl'])
-translate = dict(en2sl)
-print(translate['mountain']) #montagne
-print(translate['wind']) #vent
-print(translate['eat']) #manger
-print(translate['forest']) #forêt
-
 
 
 
