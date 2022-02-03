@@ -53,15 +53,19 @@ translate = dict(fr2en)
 print(translate['chien'])
 print(translate['jeter'])
 
+
+#build classifiers that will automatically tag new documents with appropriate category labels
 import random
 
 from nltk.corpus import movie_reviews
 documents = [(list(movie_reviews.words(fileid)), category)
              for category in movie_reviews.categories()
              for fileid in movie_reviews.fileids(category)]
-
 print(random.shuffle(documents))
 
+#define a feature extractor for documents
+#limit the number of features that the classifier needs to process to 2000 most frequent words
+#define a feature extractor that simply checks whether each of these words is present in a given document
 all_words = nltk.FreqDist(w.lower() for w in movie_reviews.words())
 word_features = list(all_words)[:2000] 
 
@@ -71,16 +75,16 @@ def document_features(document):
     for word in word_features:
         features['contains({})'.format(word)] = (word in document_words)
     return features
+print(document_features(movie_reviews.words('pos/cv957_8737.txt'))) 
 
-#print(document_features(movie_reviews.words('pos/cv957_8737.txt'))) 
-
-
+#use feature extractor to train a classifier to label new movie reviews. 
 featuresets = [(document_features(d), c) for (d,c) in documents]
 train_set, test_set = featuresets[100:], featuresets[:100]
 classifier = nltk.NaiveBayesClassifier.train(train_set)
 
+#compute its accuracy on the test set
+#use show_most_informative_features() to find out which features the classifier found to be most informative.
 print(nltk.classify.accuracy(classifier, test_set))
-
 classifier.show_most_informative_features(5) 
 
 
