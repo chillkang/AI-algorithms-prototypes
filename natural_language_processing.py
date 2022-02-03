@@ -109,17 +109,23 @@ import nltk
 
 #Exercise 4
 
+# =============================================================================
+# from nltk.corpus import swadesh
+# en2it = swadesh.entries(['en', 'it'])
+# translate = dict(en2it)
+# print(translate['mountain']) #montagna
+# print(translate['wind']) #vento
+# print(translate['eat']) #mangiare
+# print(translate['forest']) #foresta
+# 
+# =============================================================================
 from nltk.corpus import swadesh
-en2it = swadesh.entries(['en', 'it'])
-#print(fr2en)
-translate = dict(en2it)
-print(translate['mountain']) #montagna
-print(translate['wind']) #vento
-print(translate['eat']) #mangiare
-print(translate['forest']) #foresta
-
-
-
+en2es = swadesh.entries(['en', 'es'])
+translate = dict(en2es)
+print(translate['mountain']) #montaña
+print(translate['wind']) #viento
+print(translate['eat']) #comer
+print(translate['forest']) #bosque
 
 
 
