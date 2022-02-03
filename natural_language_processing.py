@@ -155,6 +155,23 @@ text3.similar("love")
 # not took keep die call sle woman
 # =============================================================================
 
+text2.similar("beginning") 
+# =============================================================================
+# time moment family house it not goodness heart what only first way
+# whole hope danger enough situation going determined knowledge
+# =============================================================================
+
+text3.similar("beginning") 
+# =============================================================================
+# lord garden way god earth face spirit waters good day firmament midst
+# place land gathering herb fruit tree days stars
+# =============================================================================
+
+# #contexts shared by two or more words
+# text2.common_contexts(["monstrous", "very"])
+
+
+
 
 
 
