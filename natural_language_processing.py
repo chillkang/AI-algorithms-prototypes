@@ -7,11 +7,10 @@ from nltk.book import *
 print(text1, text2, text3, text4, text5, text6, text7, text8, text9)
 
 #enable us to see words in context
-
+#shows every occurrence of a given word together with some context 
 text1.concordance("monstrous")
 
 #words in similar range of contexts
-
 text1.similar("monstrous")
 text2.similar("monstrous")
 
