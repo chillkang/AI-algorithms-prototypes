@@ -143,35 +143,45 @@ from nltk.book import *
 # 
 # =============================================================================
 
-text2.similar("love") 
+#text2.similar("love") 
 # =============================================================================
 # affection sister heart mother time see town life it dear elinor 
 # marianne me word family her him do regard head
 # =============================================================================
 
-text3.similar("love")
+#text3.similar("love")
 # =============================================================================
 # went drank earth darkness morning se them give nig hath man had thus
 # not took keep die call sle woman
 # =============================================================================
 
-text2.similar("beginning") 
+#text2.similar("beginning") 
 # =============================================================================
 # time moment family house it not goodness heart what only first way
 # whole hope danger enough situation going determined knowledge
 # =============================================================================
 
-text3.similar("beginning") 
+#text3.similar("beginning") 
 # =============================================================================
 # lord garden way god earth face spirit waters good day firmament midst
 # place land gathering herb fruit tree days stars
 # =============================================================================
 
-# #contexts shared by two or more words
-# text2.common_contexts(["monstrous", "very"])
+#contexts shared by two or more words
+# =============================================================================
+# text2.common_contexts(["love", "affection"])
+# text3.common_contexts(["love", "earth"])
+# text3.common_contexts(["love", "morning"])
+# =============================================================================
 
+#s_for her_and his_for s_it and_to s_and his_was her_for
+#the_he
 
-
+text2.common_contexts(["beginning", "time"])
+#the_of a_as the_to
+text3.common_contexts(["beginning", "lord"])
+text3.common_contexts(["beginning", "garden"])
+#the_of the_god
 
 
 
