@@ -137,6 +137,13 @@ print(translate['wind']) #vent
 print(translate['eat']) #manger
 print(translate['forest']) #forêt
 
+en2sl = swadesh.entries(['en', 'sl'])
+translate = dict(en2sl)
+print(translate['mountain']) #montagne
+print(translate['wind']) #vent
+print(translate['eat']) #manger
+print(translate['forest']) #forêt
+
 
 
 
