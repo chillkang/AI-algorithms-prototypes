@@ -11,7 +11,7 @@ Created on Tue Mar 17 10:39:20 2020
 import random
 import re
 import nltk
-from nltk.corpus import wordnet, swadesh
+from nltk.corpus import wordnet
 
 # Ask the user for input
 a =  input('User: ')
@@ -61,7 +61,7 @@ def tell_aphorism(sentence):
         
 # Example: check for a word "favorite" and "author", and respond to it.  
 def check_for_author(sentence):
-    KEYPHRASES = ["favorite", "author"]
+    KEYPHRASES = ["favorite", "author", "author?"]
     for word in sentence.split(" "):
         if word in KEYPHRASES:
             return "It's Edgar Allen Poe."
@@ -75,15 +75,13 @@ def check_for_definition(sentence):
             return syn[0].definition()
 
 # Example: check for a "synonym" for a word "mind", and respond to it.  
-# =============================================================================
-# def check_for_synonym(sentence):
-#     synonyms = []
-#     KEYPHRASES = ["apple", "synonym"]
-#     for syn in wordnet.synsets('apple'):
-#         for lemma in syn.lemmas():
-#             synonyms.append(lemma.name())
-#             return synonyms
-# =============================================================================
+def check_for_synonym(sentence):
+    KEYPHRASES = ["mind", "synonym"]
+    synonyms = []
+    for syn in wordnet.synsets('mind'):
+        for lemma in syn.lemmas():
+            synonyms.append(lemma.name())
+            return synonyms
 
 # Example: check for a "synonym" for a word "mind", and respond to it.  
 # =============================================================================
@@ -197,12 +195,10 @@ while (a.split(" ")[0] != 'quit' and a.split(" ")[0] != 'Quit'):
     if z!= None:
          print('Bot: ', z)
          spoke = 1
-# =============================================================================
-#     z = check_for_synonym(a)
-#     if z!= None:
-#          print('Bot: ', z)
-#          spoke = 1
-# =============================================================================
+    z = check_for_synonym(a)
+    if z!= None:
+         print('Bot: ', z)
+         spoke = 1
     
     if spoke == 0:
         print('Bot: ', analyze(a))
