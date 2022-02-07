@@ -20,6 +20,7 @@ a =  input('User: ')
 GREETING_KEYWORDS = ("hello", "hi", "greetings", "sup", "what's up",)
 
 GREETING_RESPONSES = ["'sup", "hey", "*nods*", "hey you get my text?"]
+
 APHORISM_RESPONSES = ["It always seems implssible until it's done.", "Happiness is found within.", 
                       "You only fail if you quit.", "Keep lookig up.. that's the secret of life."]
 
@@ -64,7 +65,15 @@ def check_for_author(sentence):
     for word in sentence.split(" "):
         if word in KEYPHRASES:
             return "It's Edgar Allen Poe."
-          
+        
+# Example: check for a "definition" for a word "AI", and respond to it.  
+def check_for_definition(sentence):
+    from nltk.corpus import wordnet
+    syn = wordnet.synsets('intelligence')
+    KEYPHRASES = ["intelligence"]
+    for word in sentence.split(" "):
+        if word in KEYPHRASES:
+            return syn[0].definition()
    
 # Reflections swap the users pronouns back at them. For instance, if the user
 # says: "I need you". The response will flip "I -> you", "you -> me", so the 
@@ -166,6 +175,10 @@ while (a.split(" ")[0] != 'quit' and a.split(" ")[0] != 'Quit'):
     if z!= None:
         print('Bot: ', z)
         spoke = 1
+    z = check_for_definition(a)
+    if z!= None:
+         print('Bot: ', z)
+         spoke = 1
     
     if spoke == 0:
         print('Bot: ', analyze(a))
