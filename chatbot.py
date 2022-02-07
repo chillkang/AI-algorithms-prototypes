@@ -11,7 +11,7 @@ Created on Tue Mar 17 10:39:20 2020
 import random
 import re
 import nltk
-from nltk.corpus import wordnet
+from nltk.corpus import wordnet, swadesh
 
 # Ask the user for input
 a =  input('User: ')
@@ -74,22 +74,25 @@ def check_for_definition(sentence):
         if word in KEYPHRASES:
             return syn[0].definition()
 
-# Example: check for a "synonym" for a word "mind", and respond to it.  
-def check_for_synonym(sentence):
-    KEYPHRASES = ["mind", "synonym"]
-    synonyms = []
-    for syn in wordnet.synsets('mind'):
-        for lemma in syn.lemmas():
-            synonyms.append(lemma.name())
-            return synonyms
+# =============================================================================
+# # Example: check for a "synonym" for a word "mind", and respond to it.  
+# def check_for_synonym(sentence):
+#     synonyms = []
+#     for syn in wordnet.synsets('mind'):
+#         for lemma in syn.lemmas():
+#             synonyms.append(lemma.name())
+#             return synonyms
+# 
+# =============================================================================
 
 # Example: check for a "synonym" for a word "mind", and respond to it.  
-# =============================================================================
-# 
-# en2it = swadesh.entries(['en', 'it'])
-# translate = dict(en2it)
-# print(translate['mountain']) #montagna
-# =============================================================================
+def translate(sentence):
+    KEYPHRASES = ["translate", "italian"]
+    en2it = swadesh.entries(['en', 'it'])
+    translate = dict(en2it)
+    for word in sentence.split(" "):
+        if word in KEYPHRASES:
+            return translate['wind']
 
    
 # Reflections swap the users pronouns back at them. For instance, if the user
@@ -195,7 +198,7 @@ while (a.split(" ")[0] != 'quit' and a.split(" ")[0] != 'Quit'):
     if z!= None:
          print('Bot: ', z)
          spoke = 1
-    z = check_for_synonym(a)
+    z = translate(a)
     if z!= None:
          print('Bot: ', z)
          spoke = 1
