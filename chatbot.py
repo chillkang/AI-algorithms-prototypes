@@ -10,8 +10,8 @@ Created on Tue Mar 17 10:39:20 2020
 
 import random
 import re
-import nltk
 from nltk.corpus import wordnet, swadesh
+from nltk.book import *
 
 # Ask the user for input
 a =  input('User: ')
@@ -83,6 +83,11 @@ def translate(sentence):
         if word in KEYPHRASES:
             return translate['wind']
 
+def tell_booktitle(sentence):
+    KEYPHRASES = ["text", "books", "texts", "a list of books", "books?", "read?" ]
+    for word in sentence.split(" "):
+        if word in KEYPHRASES:
+            return texts()
    
 # Reflections swap the users pronouns back at them. For instance, if the user
 # says: "I need you". The response will flip "I -> you", "you -> me", so the 
@@ -188,6 +193,10 @@ while (a.split(" ")[0] != 'quit' and a.split(" ")[0] != 'Quit'):
          print('Bot: ', z)
          spoke = 1
     z = translate(a)
+    if z!= None:
+         print('Bot: ', z)
+         spoke = 1
+    z = tell_booktitle(a)
     if z!= None:
          print('Bot: ', z)
          spoke = 1
