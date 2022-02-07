@@ -20,6 +20,8 @@ a =  input('User: ')
 GREETING_KEYWORDS = ("hello", "hi", "greetings", "sup", "what's up",)
 
 GREETING_RESPONSES = ["'sup", "hey", "*nods*", "hey you get my text?"]
+APHORISM_RESPONSES = ["It always seems implssible until it's done.", "Happiness is found within.", 
+                      "You only fail if you quit.", "Keep lookig up.. that's the secret of life."]
 
 #If any of the words in the user's input was a greeting, return a greeting response
 def check_for_greeting(sentence):
@@ -44,10 +46,24 @@ def check_for_cat(sentence):
 # Example: get your chatbot to tell a story. The \n command
 # starts a new line (useful to make the ouptut readable.)
 def tellstory(sentence):
-    KEYPHRASES = ["story", "personal"]
+    KEYPHRASES = ["story"]
     for word in sentence.split(" "):
         if word in KEYPHRASES:
-            return "Here is my story \n It was a dark and stormy night..."
+            return "Here is my story.. \n Once upon a midnight dreary, while I pondered, weak and weary,\n Over many a quaint and curious volume of forgotten lore,--\n While I nodded, nearly napping, suddenly there came a tapping,\n As of some one gently rapping, rapping at my chamber door.\n 'T is some visitor.' I muttered, tapping at my chamber door--\n Only this, and nothing more.\n"
+
+# Example: get your chatbot to tell a joke. 
+def tell_aphorism(sentence):
+    KEYPHRASES = ["aphorism"]
+    for word in sentence.split(" "):
+        if word in KEYPHRASES:
+            return random.choice(APHORISM_RESPONSES)
+        
+# Example: check for a word "favorite" and "author", and respond to it.  
+def check_for_author(sentence):
+    KEYPHRASES = ["favorite", "author"]
+    for word in sentence.split(" "):
+        if word in KEYPHRASES:
+            return "It's Edgar Allen Poe."
           
    
 # Reflections swap the users pronouns back at them. For instance, if the user
@@ -130,7 +146,6 @@ while (a.split(" ")[0] != 'quit' and a.split(" ")[0] != 'Quit'):
     if z != None:
         print('Bot: ', z)
         spoke = 1
-    
     z = check_for_phrase(a)
     if z!= None:
         print('Bot: ', z)
@@ -140,6 +155,14 @@ while (a.split(" ")[0] != 'quit' and a.split(" ")[0] != 'Quit'):
         print('Bot: ', z)
         spoke = 1  
     z = tellstory(a)
+    if z!= None:
+        print('Bot: ', z)
+        spoke = 1
+    z = tell_aphorism(a)
+    if z!= None:
+        print('Bot: ', z)
+        spoke = 1
+    z = check_for_author(a)
     if z!= None:
         print('Bot: ', z)
         spoke = 1
