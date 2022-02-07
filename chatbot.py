@@ -5,7 +5,7 @@
 """
 Created on Tue Mar 17 10:39:20 2020
 
-@author: surenjayasuriya
+@author: surenjayasuriy
 """
 
 import random
@@ -44,7 +44,7 @@ def check_for_cat(sentence):
 # Example: get your chatbot to tell a story. The \n command
 # starts a new line (useful to make the ouptut readable.)
 def tellstory(sentence):
-    KEYPHRASES = ["story"]
+    KEYPHRASES = ["story", "personal"]
     for word in sentence.split(" "):
         if word in KEYPHRASES:
             return "Here is my story \n It was a dark and stormy night..."
