@@ -74,20 +74,9 @@ def check_for_definition(sentence):
         if word in KEYPHRASES:
             return syn[0].definition()
 
-# =============================================================================
-# # Example: check for a "synonym" for a word "mind", and respond to it.  
-# def check_for_synonym(sentence):
-#     synonyms = []
-#     for syn in wordnet.synsets('mind'):
-#         for lemma in syn.lemmas():
-#             synonyms.append(lemma.name())
-#             return synonyms
-# 
-# =============================================================================
-
-# Example: check for a "synonym" for a word "mind", and respond to it.  
+# Example: translate the word "wind" to Italian.  
 def translate(sentence):
-    KEYPHRASES = ["translate", "italian"]
+    KEYPHRASES = ["translate", "italian", "wind"]
     en2it = swadesh.entries(['en', 'it'])
     translate = dict(en2it)
     for word in sentence.split(" "):
