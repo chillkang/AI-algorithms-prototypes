@@ -97,6 +97,7 @@ def show_love(sentence):
        if word in KEYPHRASES:
            return "\U0001F497"	
        
+# Example: get your chatbot to show how it looks like.        
 def look_like(sentence):
     KEYPHRASES = ["how do you look like", "look like", "show your body", "your body", "look"]
     for word in sentence.split(" "):
