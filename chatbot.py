@@ -103,6 +103,14 @@ def look_like(sentence):
     for word in sentence.split(" "):
        if word in KEYPHRASES:
            return "  [00] \n      /| \U0001F497 |\  \n        d  b  "	
+       
+# Example: check for a word "moody", and respond to it. 
+def show_hot_choco(sentence):
+    KEYPHRASES = ["moody", "bored", "sleepy", "sweet", "sad", "frustrated", "miserable" ]
+    for word in sentence.split(" "):
+        if word in KEYPHRASES:
+            return "Get some hot chocolate :) \n         / / /   \n      ___\_\_\___   \n      /         \ \n      \_________/\n      |         |\n      |         |\n      |   HOT   |\n      |  CHOCO  |\n      |         |\n      |         |\n      \_________/"
+
    
 # Reflections swap the users pronouns back at them. For instance, if the user
 # says: "I need you". The response will flip "I -> you", "you -> me", so the 
@@ -220,6 +228,10 @@ while (a.split(" ")[0] != 'quit' and a.split(" ")[0] != 'Quit'):
          print('Bot: ', z)
          spoke = 1
     z = look_like(a)
+    if z!= None:
+        print('Bot: ', z)
+        spoke = 1
+    z = show_hot_choco(a)
     if z!= None:
         print('Bot: ', z)
         spoke = 1
