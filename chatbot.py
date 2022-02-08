@@ -17,7 +17,7 @@ from nltk.book import *
 a =  input('User: ')
 
 # Sentences we'll respond with if the user greeted us
-GREETING_KEYWORDS = ("hello", "hi", "greetings", "sup", "what's up",)
+GREETING_KEYWORDS = ("hello", "hi", "greetings", "sup", "what's up")
 
 GREETING_RESPONSES = ["'sup", "hey", "*nods*", "hey you get my text?"]
 
@@ -89,12 +89,19 @@ def tell_booktitle(sentence):
     for word in sentence.split(" "):
         if word in KEYPHRASES:
             return texts()
+        
 # Example: get your chatbot to show love.        
 def show_love(sentence):
     KEYPHRASES = ["love", "heart", "mind"]
     for word in sentence.split(" "):
        if word in KEYPHRASES:
            return "\U0001F497"	
+       
+def look_like(sentence):
+    KEYPHRASES = ["how do you look like", "look like", "show your body", "your body", "look"]
+    for word in sentence.split(" "):
+       if word in KEYPHRASES:
+           return "  [00] \n      /| \U0001F497 |\  \n        d  b  "	
    
 # Reflections swap the users pronouns back at them. For instance, if the user
 # says: "I need you". The response will flip "I -> you", "you -> me", so the 
@@ -211,6 +218,11 @@ while (a.split(" ")[0] != 'quit' and a.split(" ")[0] != 'Quit'):
     if z!= None:
          print('Bot: ', z)
          spoke = 1
+    z = look_like(a)
+    if z!= None:
+        print('Bot: ', z)
+        spoke = 1
+         
     
     if spoke == 0:
         print('Bot: ', analyze(a))
