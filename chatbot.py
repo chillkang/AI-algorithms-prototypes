@@ -88,6 +88,12 @@ def tell_booktitle(sentence):
     for word in sentence.split(" "):
         if word in KEYPHRASES:
             return texts()
+        
+def show_love(sentence):
+    KEYPHRASES = ["love", "heart", "mind"]
+    for word in sentence.split(" "):
+       if word in KEYPHRASES:
+           return "\U0001F497"	
    
 # Reflections swap the users pronouns back at them. For instance, if the user
 # says: "I need you". The response will flip "I -> you", "you -> me", so the 
@@ -197,6 +203,10 @@ while (a.split(" ")[0] != 'quit' and a.split(" ")[0] != 'Quit'):
          print('Bot: ', z)
          spoke = 1
     z = tell_booktitle(a)
+    if z!= None:
+         print('Bot: ', z)
+         spoke = 1
+    z = show_love(a)
     if z!= None:
          print('Bot: ', z)
          spoke = 1
