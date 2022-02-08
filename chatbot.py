@@ -82,7 +82,8 @@ def translate(sentence):
     for word in sentence.split(" "):
         if word in KEYPHRASES:
             return translate['wind']
-
+        
+# Example: get your chatbot tell you a list of books it read.
 def tell_booktitle(sentence):
     KEYPHRASES = ["text", "books", "texts", "a list of books", "books?", "read?" ]
     for word in sentence.split(" "):
