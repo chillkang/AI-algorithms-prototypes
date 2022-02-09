@@ -7,10 +7,10 @@ Created on Tue Mar 17 10:39:20 2020
 
 @author: surenjayasuriy
 """
-
+import nltk
 import random
 import re
-from nltk.corpus import wordnet, swadesh
+from nltk.corpus import wordnet, swadesh, names
 from nltk.book import *
 
 # Ask the user for input
@@ -111,6 +111,23 @@ def show_hot_choco(sentence):
         if word in KEYPHRASES:
             return "Get some hot chocolate :) \n         / / /   \n      ___\_\_\___   \n      /         \ \n      \_________/\n      |         |\n      |         |\n      |   HOT   |\n      |  CHOCO  |\n      |         |\n      |         |\n      \_________/"
 
+# Example: check for a word "fist letter" for male names. 
+def gender_features(word):
+    return {'first_letter': word[0]}
+
+labeled_names = ([(name, 'male') for name in names.words('male.txt')] +
+[(name, 'female') for name in names.words('female.txt')])
+random.shuffle(labeled_names)
+
+# Example: check for a word "fist letter" for male names and respond to it. 
+def show_first_letter(sentence):
+    KEYPHRASES = ["commonly used first letter for male names"]
+
+    featuresets = [(gender_features(n), gender) for (n, gender) in labeled_names]
+    train_set, test_set = featuresets[500:], featuresets[:500]
+    classifier = nltk.NaiveBayesClassifier.train(train_set)
+    print(classifier.show_most_informative_features(5))
+    return "This is the result"
    
 # Reflections swap the users pronouns back at them. For instance, if the user
 # says: "I need you". The response will flip "I -> you", "you -> me", so the 
@@ -232,6 +249,10 @@ while (a.split(" ")[0] != 'quit' and a.split(" ")[0] != 'Quit'):
         print('Bot: ', z)
         spoke = 1
     z = show_hot_choco(a)
+    if z!= None:
+        print('Bot: ', z)
+        spoke = 1
+    z = show_first_letter(a)
     if z!= None:
         print('Bot: ', z)
         spoke = 1
