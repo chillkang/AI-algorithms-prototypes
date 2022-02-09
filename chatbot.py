@@ -120,7 +120,7 @@ labeled_names = ([(name, 'male') for name in names.words('male.txt')] +
 random.shuffle(labeled_names)
 
 # Example: check for a word "fist letter" for male names and respond to it. 
-def show_first_letter(sentence):
+def show_gender(sentence):
     featuresets = [(gender_features(n), gender) for (n, gender) in labeled_names]
     train_set, test_set = featuresets[500:], featuresets[:500]
     classifier = nltk.NaiveBayesClassifier.train(train_set)
