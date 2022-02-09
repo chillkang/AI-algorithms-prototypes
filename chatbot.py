@@ -121,13 +121,13 @@ random.shuffle(labeled_names)
 
 # Example: check for a word "fist letter" for male names and respond to it. 
 def show_first_letter(sentence):
-    KEYPHRASES = ["commonly used first letter for male names"]
-
     featuresets = [(gender_features(n), gender) for (n, gender) in labeled_names]
     train_set, test_set = featuresets[500:], featuresets[:500]
     classifier = nltk.NaiveBayesClassifier.train(train_set)
-    print(classifier.show_most_informative_features(5))
-    return "This is the result"
+    KEYPHRASES = ["gender", "gender of this name", "male?", "female?"]
+    for word in sentence.split(" "):
+        if word in KEYPHRASES:
+            return classifier.classify(gender_features('Wally'))
    
 # Reflections swap the users pronouns back at them. For instance, if the user
 # says: "I need you". The response will flip "I -> you", "you -> me", so the 
