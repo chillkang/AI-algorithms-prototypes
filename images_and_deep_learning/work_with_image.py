@@ -3,6 +3,8 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+from PIL import Image
+
 
 ########## Section 2.a −<Loading and Displaying Images>####################### 
 # load image
@@ -22,4 +24,10 @@ im_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 plt.imshow(im_rgb)
 plt.show()
 cv2.imwrite('elephant_matplotlib.png', im_rgb)
+
+im_pillow = np.array(Image.open('elephant.jpeg'))
+
+im_bgr = cv2.cvtColor(im_pillow, cv2.COLOR_RGB2BGR)
+
+cv2.imwrite('elephant_matplotlib.png', im_bgr)
 ##############################################################################
