@@ -101,10 +101,20 @@ plt.imshow(img_rgb)
 
 height, width = img_rgb.shape[:2]
 downsample_img = cv2.resize(img_rgb, (round(width / 10), round(height / 10)), interpolation=cv2.INTER_AREA)
-
 plt.imshow(downsample_img)
 plt.show()
 cv2.imwrite('elephant_10xdown.png', downsample_img)
+
+upsized1 = cv2.resize(img_rgb, (round(width * 10), round(height * 10)), interpolation = cv2.INTER_NEAREST)
+plt.imshow(upsized1)
+plt.show()
+cv2.imwrite('elephant_10xup_nearst_neighbor.png', upsized1)
+
+upsized2 = cv2.resize(img_rgb, (round(width * 10), round(height * 10)), interpolation = cv2.INTER_CUBIC)
+plt.imshow(upsized2)
+plt.show()
+cv2.imwrite('elephant_10xup_bicubic.png', upsized2)
+
 
 
 
