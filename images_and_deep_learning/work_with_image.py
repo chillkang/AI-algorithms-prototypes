@@ -10,7 +10,7 @@ from PIL import Image
 # load image
 img = cv2.imread('elephant.jpeg')
 
-# display image
+# display and save image
 plt.imshow(img)
 plt.show()
 cv2.imwrite('elephant_opencv.png', img)
@@ -20,7 +20,7 @@ cv2.imwrite('elephant_opencv.png', img)
 # load image
 im_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-# display image
+# display and save image
 plt.imshow(im_rgb)
 plt.show()
 cv2.imwrite('elephant_matplotlib.png', im_rgb)
@@ -34,9 +34,18 @@ cv2.imwrite('elephant_matplotlib.png', im_bgr)
 # load image
 img_gray = cv2.imread('elephant.jpeg', cv2.IMREAD_GRAYSCALE)
 
-# display image
+# display and save image
 plt.imshow(img_gray)
 plt.show()
 cv2.imwrite('elephant_gray.png', img_gray)
 ##############################################################################
 
+########## Section 3 −<Cropping>############################################## 
+# print dimensions and load image
+print(img.shape) 
+cropped_img = im_rgb[400:900, 100:600]
+
+# display and save image
+plt.imshow(cropped_img)
+cv2.imwrite('babyelephant.png', cropped_img)
+##############################################################################
