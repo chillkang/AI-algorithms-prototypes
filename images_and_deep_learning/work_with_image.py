@@ -47,7 +47,7 @@ plt.show()
 cv2.imwrite('babyelephant.png', cropped_img)
 ##############################################################################
 
-########## Section 4.a -<Pixel-wise Arithmetic Operations>####################
+########## Section 4 -<Pixel-wise Arithmetic Operations>######################
 # Read in the image in color, and convert it to RGB space.
 
 # =============================================================================
@@ -94,6 +94,8 @@ cv2.imwrite('babyelephant.png', cropped_img)
 # 
 # =============================================================================
 ##############################################################################
+
+########## Section 5 -<Resizing images>#######################################
 img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 plt.imshow(img_rgb)
 
