@@ -50,49 +50,59 @@ cv2.imwrite('babyelephant.png', cropped_img)
 ########## Section 4.a -<Pixel-wise Arithmetic Operations>####################
 # Read in the image in color, and convert it to RGB space.
 
+# =============================================================================
+# img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+# plt.imshow(img_rgb)
+# 
+# img_rgb = img_rgb + 256
+# 
+# print(img_rgb.dtype) #uint16
+# pixel= img_rgb[999, 1499]
+# print(pixel) #[424 427 350]
+# 
+# img_rgb = img_rgb.astype(np.uint8)
+# print(img_rgb.dtype)  #unit8
+# pixel= img_rgb[999, 1499]
+# print(pixel) #[168 171 94]
+# 
+# #The RGB/BGR values are [0, 255] BECAUSE uint8 has that range. 
+# #The reason why Uint8 is very common is because it is the standard way to display images, 
+# #in which each pixel ranges between 0 and 255.
+# 
+# 
+# bgr_img = cv2.imread("elephant.jpeg")
+# (b,g,r) = cv2.split(bgr_img)
+# cv2.imshow("Red", r)
+# cv2.imshow("Green", g)
+# cv2.imshow("Blue", b)
+# cv2.waitKey(0)
+# 
+# #x = np.uint8([256])
+# b = cv2.add(b, 256)
+# g = cv2.add(g, 256)
+# r = cv2.add(r, 256)
+# cv2.imshow("Blue256", b)
+# cv2.imshow("Green256", g)
+# cv2.imshow("Red256", r)
+# cv2.waitKey(0)
+# 
+# 
+# bgr_img = cv2.merge([b, g, r])
+# cv2.imshow("Merged", bgr_img)
+# cv2.waitKey(0)
+# cv2.imwrite('merged.png', bgr_img)
+# 
+# =============================================================================
+##############################################################################
 img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 plt.imshow(img_rgb)
 
-img_rgb = img_rgb + 256
+height, width = img_rgb.shape[:2]
+downsample_img = cv2.resize(img_rgb, (round(width / 10), round(height / 10)), interpolation=cv2.INTER_AREA)
 
-print(img_rgb.dtype) #uint16
-pixel= img_rgb[999, 1499]
-print(pixel) #[424 427 350]
-
-img_rgb = img_rgb.astype(np.uint8)
-print(img_rgb.dtype)  #unit8
-pixel= img_rgb[999, 1499]
-print(pixel) #[168 171 94]
-
-#The RGB/BGR values are [0, 255] BECAUSE uint8 has that range. 
-#The reason why Uint8 is very common is because it is the standard way to display images, 
-#in which each pixel ranges between 0 and 255.
-
-
-bgr_img = cv2.imread("elephant.jpeg")
-(b,g,r) = cv2.split(bgr_img)
-cv2.imshow("Red", r)
-cv2.imshow("Green", g)
-cv2.imshow("Blue", b)
-cv2.waitKey(0)
-
-#x = np.uint8([256])
-b = cv2.add(b, 256)
-g = cv2.add(g, 256)
-r = cv2.add(r, 256)
-cv2.imshow("Blue256", b)
-cv2.imshow("Green256", g)
-cv2.imshow("Red256", r)
-cv2.waitKey(0)
-
-
-bgr_img = cv2.merge([b, g, r])
-cv2.imshow("Merged", bgr_img)
-cv2.waitKey(0)
-cv2.imwrite('merged.png', bgr_img)
-
-##############################################################################
-
+plt.imshow(downsample_img)
+plt.show()
+cv2.imwrite('elephant_10xdown.png', downsample_img)
 
 
 
