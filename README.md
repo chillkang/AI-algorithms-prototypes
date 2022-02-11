@@ -11,4 +11,4 @@ developing and building prototypes of AI algorithms
 * Python
 * Heapq: Heap que algorithm
 * NLTK: Natural Language Toolkit 
-* Opencv
+* OpenCV
