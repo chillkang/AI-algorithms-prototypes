@@ -37,5 +37,6 @@ img_gray = cv2.imread('elephant.jpeg', cv2.IMREAD_GRAYSCALE)
 # display image
 plt.imshow(img_gray)
 plt.show()
+cv2.imwrite('elephant_gray.png', img_gray)
 ##############################################################################
 
