@@ -119,15 +119,20 @@ cv2.imwrite('elephant_10xup_bicubic.png', upsized2_BGR)
 
 img1 = Image.open('elephant.jpeg')
 img2 = Image.open('elephant_10xup_nearst_neighbor.png')
-diff = ImageChops.difference(img1, img2)
-plt.imshow(diff)
+diff1 = ImageChops.difference(img1, img2)
+plt.imshow(diff1)
 plt.show()
+diff1 = np.array(diff1)
+cv2.imwrite('elephant_diff_with_nearst_neighbor.png', diff1)
 
 img3 = Image.open('elephant.jpeg')
 img4 = Image.open('elephant_10xup_bicubic.png')
-diff = ImageChops.difference(img3, img4)
-plt.imshow(diff)
+diff2 = ImageChops.difference(img3, img4)
+plt.imshow(diff2)
 plt.show()
+diff2 = np.array(diff2)
+cv2.imwrite('elephant_diff_with_bicubic.png', diff2)
+
 
 
 
