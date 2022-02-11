@@ -26,8 +26,16 @@ plt.show()
 cv2.imwrite('elephant_matplotlib.png', im_rgb)
 
 im_pillow = np.array(Image.open('elephant.jpeg'))
-
 im_bgr = cv2.cvtColor(im_pillow, cv2.COLOR_RGB2BGR)
-
 cv2.imwrite('elephant_matplotlib.png', im_bgr)
 ##############################################################################
+
+########## Section 2.c −<Loading and Displaying Images>####################### 
+# load image
+img_gray = cv2.imread('elephant.jpeg', cv2.IMREAD_GRAYSCALE)
+
+# display image
+plt.imshow(img_gray)
+plt.show()
+##############################################################################
+
