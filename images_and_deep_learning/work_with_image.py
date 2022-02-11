@@ -3,7 +3,7 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-from PIL import Image
+from PIL import Image, ImageChops
 
 
 ########## Section 2.a −<Loading and Displaying Images>####################### 
@@ -96,8 +96,8 @@ cv2.imwrite('babyelephant.png', cropped_img)
 ##############################################################################
 
 ########## Section 5 -<Resizing images>#######################################
+img = cv2.imread('elephant.jpeg')
 img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-plt.imshow(img_rgb)
 
 height, width = img_rgb.shape[:2]
 downsample_img = cv2.resize(img_rgb, (round(width / 10), round(height / 10)), interpolation=cv2.INTER_AREA)
@@ -108,12 +108,34 @@ cv2.imwrite('elephant_10xdown.png', downsample_img)
 upsized1 = cv2.resize(img_rgb, (round(width * 10), round(height * 10)), interpolation = cv2.INTER_NEAREST)
 plt.imshow(upsized1)
 plt.show()
-cv2.imwrite('elephant_10xup_nearst_neighbor.png', upsized1)
+upsized1_BGR = cv2.cvtColor(upsized1, cv2.COLOR_RGB2BGR)
+cv2.imwrite('elephant_10xup_nearst_neighbor.png', upsized1_BGR)
 
 upsized2 = cv2.resize(img_rgb, (round(width * 10), round(height * 10)), interpolation = cv2.INTER_CUBIC)
 plt.imshow(upsized2)
 plt.show()
-cv2.imwrite('elephant_10xup_bicubic.png', upsized2)
+upsized2_BGR = cv2.cvtColor(upsized1, cv2.COLOR_RGB2BGR)
+cv2.imwrite('elephant_10xup_bicubic.png', upsized2_BGR)
+
+img1 = Image.open('elephant.jpeg')
+img2 = Image.open('elephant_10xup_nearst_neighbor.png')
+diff = ImageChops.difference(img1, img2)
+plt.imshow(diff)
+plt.show()
+
+img3 = Image.open('elephant.jpeg')
+img4 = Image.open('elephant_10xup_bicubic.png')
+diff = ImageChops.difference(img3, img4)
+plt.imshow(diff)
+plt.show()
+
+
+
+
+
+
+
+
 
 
 
