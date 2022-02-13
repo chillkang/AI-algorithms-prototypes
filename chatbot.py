@@ -202,7 +202,7 @@ def analyze(statement):
 
 ## This is the main part of the Chatbot code, checks for phrases, words, and 
 ## prints responses
-while (a.split(" ")[0] != 'quit' and a.split(" ")[0] != 'Quit'):
+while (a.split(" ")[0] != 'bye' and a.split(" ")[0] != 'Bye'):
     spoke = 0
     z =  check_for_greeting(a)
     if z != None:
@@ -252,7 +252,7 @@ while (a.split(" ")[0] != 'quit' and a.split(" ")[0] != 'Quit'):
     if z!= None:
         print('Bot: ', z)
         spoke = 1
-    z = show_first_letter(a)
+    z = show_gender(a)
     if z!= None:
         print('Bot: ', z)
         spoke = 1

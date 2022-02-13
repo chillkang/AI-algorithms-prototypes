@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-    #Exercise 1
+    #follwing nltk tutorial
 
 import nltk
 nltk.download('book')
@@ -89,8 +89,8 @@ classifier = nltk.NaiveBayesClassifier.train(train_set)
 print(nltk.classify.accuracy(classifier, test_set))
 classifier.show_most_informative_features(5) 
 
-
-    #Exervise 2
+    ###########################################################################
+    #the use of word 'however' in texts 1 - 9
 import nltk
 nltk.download('book')
 from nltk.book import *
@@ -128,7 +128,8 @@ print(syn[4].examples())
     # ['Victory, however it was brought about, was sweet', 'however he did it, it was very clever']
     # =============================================================================
 
-    #Exercise 3
+    ###########################################################################
+    #vocabulary useage between text2, Sense and Sensibility, and text3, The Book of Genesis
 nltk.download('book')
 
 from nltk.book import *
@@ -180,7 +181,8 @@ text3.common_contexts(["beginning", "lord"])
 text3.common_contexts(["beginning", "garden"])
     #the_of the_god
     
-    #Exercise 4
+    ###########################################################################
+    #translation of words “mountain”, “wind”, “eat”, and “forest” to Italian, Spanish, French, Slovenian.
 from nltk.corpus import swadesh
 en2it = swadesh.entries(['en', 'it'])
 translate = dict(en2it)

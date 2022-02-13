@@ -53,6 +53,7 @@ cv2.imwrite('babyelephant.png', cropped_img)
 # =============================================================================
 # img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 # plt.imshow(img_rgb)
+# plt.show()
 # pixel= img_rgb[999, 1499]
 # print(pixel) # [168 171  94]
 # 
@@ -60,12 +61,9 @@ cv2.imwrite('babyelephant.png', cropped_img)
 # 
 # print(img_rgb.dtype) #uint16
 # plt.imshow(img_rgb)
-# plt.show()
+# plt.show() 
 # pixel= img_rgb[999, 1499]
 # print(pixel) #[424 427 350]
-# 
-# #Clipping input data to the valid range for imshow with RGB data ([0..1] 
-# #for floats or [0..255] for integers).
 # 
 # img_rgb = img_rgb.astype(np.uint8)
 # print(img_rgb.dtype)  #unit8
@@ -74,36 +72,42 @@ cv2.imwrite('babyelephant.png', cropped_img)
 # pixel= img_rgb[999, 1499]
 # print(pixel) #[168 171 94]
 # 
+# #Clipping input data to the valid range for imshow with RGB data ([0..1] 
+# #for floats or [0..255] for integers).
 # #The RGB/BGR values are [0, 255] BECAUSE uint8 has that range. 
 # #The reason why Uint8 is very common is because it is the standard way to display images, 
 # #in which each pixel ranges between 0 and 255.
-# 
-# 
+# =============================================================================
+
+
+# =============================================================================
 # bgr_img = cv2.imread("elephant.jpeg")
 # (b,g,r) = cv2.split(bgr_img)
-# cv2.imshow("Red", r)
-# cv2.imshow("Green", g)
-# cv2.imshow("Blue", b)
-# print(r.dtype) #unit8
+# 
+# plt.figure()
+# plt.imshow(b)
+# plt.show()
+# plt.figure()
+# plt.imshow(g)
+# plt.show()
+# plt.figure()
+# plt.imshow(r)
+# plt.show()
 # 
 # b = cv2.add(b, 256)
 # g = cv2.add(g, 256)
 # r = cv2.add(r, 256)
-# cv2.imshow("Blue256", b)
-# cv2.imshow("Green256", g)
-# cv2.imshow("Red256", r)
 # 
-# print(b.dtype)
-# 
-# # =============================================================================
-# # b16 = np.add(b.astype(np.uint16), 256).clip(0, 255).astype(np.uint8)
-# # g16 = np.add(g.astype(np.uint16), 256).clip(0, 255).astype(np.uint8)
-# # r16 = np.add(r.astype(np.uint16), 256).clip(0, 255).astype(np.uint8)
-# # cv2.imshow("Blue8", b16)
-# # cv2.imshow("Green8", g16)
-# # cv2.imshow("Red8", r16)
-# #
-# # =============================================================================
+# plt.figure()
+# plt.imshow(b)
+# plt.show()
+# plt.figure()
+# plt.imshow(g)
+# plt.show()
+# plt.figure()
+# plt.imshow(r)
+# plt.show()
+# print(b.dtype) #uint8
 # 
 # #If you have a datatype that will not overflow if you add 100 to it (i.e. uint16) 
 # #then you can do simply use numpy.add() to do it:
@@ -112,12 +116,15 @@ cv2.imwrite('babyelephant.png', cropped_img)
 # #So there is some casting (astype()) needed:
 # 
 # bgr_img = cv2.merge([b, g, r])
-# cv2.imshow("Merged256", bgr_img)
+# 
+# plt.figure()
+# plt.imshow(bgr_img)
+# plt.show()
 # cv2.imwrite('merged256.png', bgr_img)
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()
+# 
 # =============================================================================
-
 ##############################################################################
 
 ########## Section 5 -<Resizing images>#######################################
@@ -159,11 +166,11 @@ diff2 = np.array(diff2)
 cv2.imwrite('elephant_diff_with_bicubic.png', diff2)
 
 sum1 = cv2.sumElems(diff1)
-print(sum1)
+print(sum1) #(84037224.0, 72856994.0, 62359036.0, 0.0)
 sum2 = cv2.sumElems(diff2)
-print(sum2)
+print(sum2) #(84047843.0, 72868982.0, 62361368.0, 0.0)
 
-
+cv2.waitKey(0)
 
 
 
