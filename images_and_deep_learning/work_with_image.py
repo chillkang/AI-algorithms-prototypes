@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
+# import dependencies 
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image, ImageChops
-
 
 ########## Section 2 −<Loading and Displaying Images>####################### 
 # load an image
