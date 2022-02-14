@@ -21,8 +21,8 @@ GREETING_KEYWORDS = ("hello", "hi", "greetings", "sup", "what's up")
 
 GREETING_RESPONSES = ["'sup", "hey", "*nods*", "hey you get my text?"]
 
-APHORISM_RESPONSES = ["It always seems implssible until it's done.", "Happiness is found within.", 
-                      "You only fail if you quit.", "Keep lookig up.. that's the secret of life."]
+APHORISM_RESPONSES = ["It always seems impossible until it's done.", "Happiness is found within.", 
+                      "You only fail if you quit.", "Keep looking up.. that's the secret of life."]
 
 #If any of the words in the user's input was a greeting, return a greeting response
 def check_for_greeting(sentence):
@@ -47,7 +47,7 @@ def check_for_cat(sentence):
 # Example: get your chatbot to tell a story. The \n command
 # starts a new line (useful to make the ouptut readable.)
 def tellstory(sentence):
-    KEYPHRASES = ["story"]
+    KEYPHRASES = ["story", "story."]
     for word in sentence.split(" "):
         if word in KEYPHRASES:
             return "Here is my story.. \n Once upon a midnight dreary, while I pondered, weak and weary,\n Over many a quaint and curious volume of forgotten lore,--\n While I nodded, nearly napping, suddenly there came a tapping,\n As of some one gently rapping, rapping at my chamber door.\n 'T is some visitor.' I muttered, tapping at my chamber door--\n Only this, and nothing more.\n"

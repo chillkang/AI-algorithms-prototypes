@@ -99,12 +99,6 @@ plt.imshow(r)
 plt.show()
 print(b.dtype) #uint8
 
-#If you have a datatype that will not overflow if you add 100 to it (i.e. uint16) 
-#then you can do simply use numpy.add() to do it:
-#Most images are of type uint8 though so you'd want to clamp the output to a range of 0 to 255. 
-#But when you do the add, you'd want to use a datatype that didn't overflow. 
-#So there is some casting (astype()) needed:
-
 # merge the channels back together and display the image
 bgr_img = cv2.merge([b, g, r])
 
@@ -114,6 +108,12 @@ plt.show()
 cv2.imwrite('merged256.png', bgr_img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+#If you have a datatype that will not overflow if you add 100 to it (i.e. uint16) 
+#then you can do simply use numpy.add() to do it:
+#Most images are of type uint8 though so you'd want to clamp the output to a range of 0 to 255. 
+#But when you do the add, you'd want to use a datatype that didn't overflow. 
+#So there is some casting (astype()) needed:
 
 ##############################################################################
 
