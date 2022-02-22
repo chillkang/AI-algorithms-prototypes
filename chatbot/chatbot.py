@@ -175,11 +175,11 @@ def show_seoul(sentence):
            plt.show()
            return "Check the plots!"
        
-# Example: check for a word "New York" and respond to it. 
-def show_newyork(sentence):
-    img = cv2.imread('newyork.jpeg')
+# Example: check for a word "Amsterdam and respond to it. 
+def show_amsterdam(sentence):
+    img = cv2.imread('amsterdam.jpeg')
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    KEYPHRASES = ["new york", "New York", "New York?", "new york?"]
+    KEYPHRASES = ["amsterdam", "Amsterdam", "Amsterdam?", "amsterdam?"]
     for word in sentence.split(" "):
        if word in KEYPHRASES:
            plt.imshow(img_rgb)
@@ -199,11 +199,11 @@ def show_weather(sentence):
       
 # Example: check for words "green sky" and respond to it. 
 def show_greensky(sentence):
-    img_gray = cv2.imread('london.jpeg', cv2.IMREAD_GRAYSCALE)
+    img_green = cv2.imread('london.jpeg', cv2.IMREAD_GRAYSCALE)
     KEYPHRASES = ["green sky?", "green?"]
     for word in sentence.split(" "):
        if word in KEYPHRASES:
-           plt.imshow(img_rgb)
+           plt.imshow(img_green)
            plt.show()
            return "Of course. I will show you here."
 
@@ -351,14 +351,10 @@ while (a.split(" ")[0] != 'bye' and a.split(" ")[0] != 'Bye'):
     if z!= None:
         print('Bot: ', z)
         spoke = 1
-    z = show_newyork(a)
+    z = show_amsterdam(a)
     if z!= None:
         print('Bot: ', z)
         spoke = 1
-    z = show_newyork(a)
-    if z!= None:
-         print('Bot: ', z)
-         spoke = 1
     z = show_weather(a)
     if z!= None:
          print('Bot: ', z)
