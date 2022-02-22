@@ -134,13 +134,23 @@ def show_gender(sentence):
     for word in sentence.split(" "):
         if word in KEYPHRASES:
             return classifier.classify(gender_features('Wally'))
- 
-def show_elephant(sentence):
-    img = cv2.imread('elephant.jpeg')
-    KEYPHRASES = ["image", "elephant" ]
+        
+# Example: check for a word "city" and respond to it. 
+def show_city(sentence):
+    KEYPHRASES = ["image", "city", "cities"]
     for word in sentence.split(" "):
        if word in KEYPHRASES:
-           plt.imshow(img)
+           plt.imshow(img_rgb)
+           plt.show()
+           return "Which city do you want to see?"
+       
+def show_elephant(sentence):
+    img = cv2.imread('amsterdam.jpeg')
+    img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    KEYPHRASES = ["image", "seoul" ]
+    for word in sentence.split(" "):
+       if word in KEYPHRASES:
+           plt.imshow(img_rgb)
            plt.show()
            return "check the plots"
           
@@ -272,7 +282,7 @@ while (a.split(" ")[0] != 'bye' and a.split(" ")[0] != 'Bye'):
     if z!= None:
         print('Bot: ', z)
         spoke = 1
-    z = show_elephant(a)
+    z = show_city(a)
     if z!= None:
         print('Bot: ', z)
         spoke = 1
