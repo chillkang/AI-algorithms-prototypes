@@ -321,6 +321,22 @@ while (a.split(" ")[0] != 'bye' and a.split(" ")[0] != 'Bye'):
     if z!= None:
         print('Bot: ', z)
         spoke = 1
+    z = show_florence(a)
+    if z!= None:
+        print('Bot: ', z)
+        spoke = 1
+    z = show_london(a)
+    if z!= None:
+        print('Bot: ', z)
+        spoke = 1
+    z = show_seoul(a)
+    if z!= None:
+        print('Bot: ', z)
+        spoke = 1
+    z = show_newyork(a)
+    if z!= None:
+        print('Bot: ', z)
+        spoke = 1
          
     
     if spoke == 0:
