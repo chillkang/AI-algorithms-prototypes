@@ -175,7 +175,7 @@ def show_seoul(sentence):
            plt.show()
            return "Check the plots!"
        
-# Example: check for a word "Amsterdam and respond to it. 
+# Example: check for a word "Amsterdam" and respond to it. 
 def show_amsterdam(sentence):
     img = cv2.imread('amsterdam.jpeg')
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -197,15 +197,25 @@ def show_weather(sentence):
            plt.show()
            return "It's very foggy. You might need an umbrella today."
       
-# Example: check for words "green sky" and respond to it. 
+# Example: check for words "green" and respond to it. 
 def show_greensky(sentence):
     img_green = cv2.imread('london.jpeg', cv2.IMREAD_GRAYSCALE)
-    KEYPHRASES = ["green sky?", "green?"]
+    KEYPHRASES = ["green", "green?"]
     for word in sentence.split(" "):
        if word in KEYPHRASES:
            plt.imshow(img_green)
            plt.show()
            return "Of course. I will show you here."
+
+# Example: check for a word "sunset" and respond to it. 
+def show_sunset(sentence):
+    img = cv2.imread('seoul.jpeg')
+    KEYPHRASES = ["sunset", "sunset?"]
+    for word in sentence.split(" "):
+       if word in KEYPHRASES:
+           plt.imshow(img)
+           plt.show()
+           return "Isn't this beautiful?"
 
 
 # Reflections swap the users pronouns back at them. For instance, if the user
@@ -360,6 +370,10 @@ while (a.split(" ")[0] != 'bye' and a.split(" ")[0] != 'Bye'):
          print('Bot: ', z)
          spoke = 1 
     z = show_greensky(a)
+    if z!= None:
+         print('Bot: ', z)
+         spoke = 1 
+    z = show_sunset(a)
     if z!= None:
          print('Bot: ', z)
          spoke = 1 
