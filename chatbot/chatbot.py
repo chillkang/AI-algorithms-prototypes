@@ -216,7 +216,19 @@ def show_sunset(sentence):
            plt.imshow(img)
            plt.show()
            return "Isn't this beautiful?"
-
+       
+# Example: check for a word "bridge" and respond to it. 
+def show_bridge(sentence):
+    img = cv2.imread('florence.jpeg')
+    cropped_img = img[200:600, 100:1300]
+    img_rgb = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2RGB)
+    KEYPHRASES = ["bridge", "bridge?"]
+    for word in sentence.split(" "):
+       if word in KEYPHRASES:
+          plt.imshow(img_rgb)
+          plt.show()
+          return "It's a Becchio Bridge."
+       
 
 # Reflections swap the users pronouns back at them. For instance, if the user
 # says: "I need you". The response will flip "I -> you", "you -> me", so the 
@@ -374,6 +386,10 @@ while (a.split(" ")[0] != 'bye' and a.split(" ")[0] != 'Bye'):
          print('Bot: ', z)
          spoke = 1 
     z = show_sunset(a)
+    if z!= None:
+         print('Bot: ', z)
+         spoke = 1 
+    z = show_bridge(a)
     if z!= None:
          print('Bot: ', z)
          spoke = 1 
