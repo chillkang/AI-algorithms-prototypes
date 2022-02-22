@@ -227,7 +227,19 @@ def show_bridge(sentence):
        if word in KEYPHRASES:
           plt.imshow(img_rgb)
           plt.show()
-          return "It's a Becchio Bridge."
+          return "It's the Ponte Vecchio. It was built in the 14th century."
+
+# Example: check for words "architecture" and "style" and respond to it. 
+def show_canal_houses(sentence):
+    img = cv2.imread('ansterdam.jpeg')
+    cropped_img = img[100:500, 150:900]
+    img_rgb = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2RGB)
+    KEYPHRASES = ["architecture", "architecture?", "style", "style?"]
+    for word in sentence.split(" "):
+       if word in KEYPHRASES:
+          plt.imshow(img_rgb)
+          plt.show()
+          return "The archetectural style is Dutch Baroque. The narrow townhouses line Amsterdam's 17th century canal rings."
        
 
 # Reflections swap the users pronouns back at them. For instance, if the user
@@ -390,6 +402,10 @@ while (a.split(" ")[0] != 'bye' and a.split(" ")[0] != 'Bye'):
          print('Bot: ', z)
          spoke = 1 
     z = show_bridge(a)
+    if z!= None:
+         print('Bot: ', z)
+         spoke = 1 
+    z = show_canal_houses(a)
     if z!= None:
          print('Bot: ', z)
          spoke = 1 
