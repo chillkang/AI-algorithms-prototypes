@@ -145,7 +145,7 @@ def show_city(sentence):
            return "Which city do you want to see?"
 
 # Example: check for a word "Florence" and respond to it. 
-def show_elephant(sentence):
+def show_florence(sentence):
     img = cv2.imread('florence.jpeg')
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     KEYPHRASES = ["florence", "Florence", "Florence?", "florence?"]
@@ -156,7 +156,7 @@ def show_elephant(sentence):
            return "Check the plots!"
 
 # Example: check for a word "London" and respond to it. 
-def show_elephant(sentence):
+def show_london(sentence):
     img = cv2.imread('london.jpeg')
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     KEYPHRASES = ["london", "London", "London?", "london?"]
@@ -167,7 +167,7 @@ def show_elephant(sentence):
            return "Check the plots!"
 
 # Example: check for a word "Seoul" and respond to it. 
-def show_elephant(sentence):
+def show_seoul(sentence):
     img = cv2.imread('seoul.jpeg')
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     KEYPHRASES = ["seoul", "Seoul", "Seoul?", "seoul?"]
@@ -178,7 +178,7 @@ def show_elephant(sentence):
            return "Check the plots!"
        
 # Example: check for a word "New York" and respond to it. 
-def show_elephant(sentence):
+def show_newyork(sentence):
     img = cv2.imread('newyork.jpeg')
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     KEYPHRASES = ["new york", "New York", "New York?", "new york?"]
@@ -189,7 +189,7 @@ def show_elephant(sentence):
            return "Check the plots!"
        
 
-   
+
 # Reflections swap the users pronouns back at them. For instance, if the user
 # says: "I need you". The response will flip "I -> you", "you -> me", so the 
 # bot will say "you need me". 
