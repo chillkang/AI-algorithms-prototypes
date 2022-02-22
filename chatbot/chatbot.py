@@ -137,11 +137,9 @@ def show_gender(sentence):
         
 # Example: check for a word "city" and respond to it. 
 def show_city(sentence):
-    KEYPHRASES = ["image", "city", "cities"]
+    KEYPHRASES = ["image", "city", "cities", "images?", "city?", "cities?"]
     for word in sentence.split(" "):
        if word in KEYPHRASES:
-           plt.imshow(img_rgb)
-           plt.show()
            return "Which city do you want to see?"
 
 # Example: check for a word "Florence" and respond to it. 
@@ -188,6 +186,26 @@ def show_newyork(sentence):
            plt.show()
            return "Check the plots!"
        
+# Example: check for words "London" and "weather" respond to it. 
+def show_weather(sentence):
+    img_gray = cv2.imread('london.jpeg', cv2.IMREAD_GRAYSCALE)
+    img_rgb = cv2.cvtColor(img_gray, cv2.COLOR_BGR2RGB)
+    KEYPHRASES = ["weather?", "weather"]
+    for word in sentence.split(" "):
+       if word in KEYPHRASES:
+           plt.imshow(img_rgb)
+           plt.show()
+           return "It's very foggy. You might need an umbrella today."
+      
+# Example: check for words "green sky" and respond to it. 
+def show_greensky(sentence):
+    img_gray = cv2.imread('london.jpeg', cv2.IMREAD_GRAYSCALE)
+    KEYPHRASES = ["green sky?", "green?"]
+    for word in sentence.split(" "):
+       if word in KEYPHRASES:
+           plt.imshow(img_rgb)
+           plt.show()
+           return "Of course. I will show you here."
 
 
 # Reflections swap the users pronouns back at them. For instance, if the user
@@ -337,7 +355,18 @@ while (a.split(" ")[0] != 'bye' and a.split(" ")[0] != 'Bye'):
     if z!= None:
         print('Bot: ', z)
         spoke = 1
-         
+    z = show_newyork(a)
+    if z!= None:
+         print('Bot: ', z)
+         spoke = 1
+    z = show_weather(a)
+    if z!= None:
+         print('Bot: ', z)
+         spoke = 1 
+    z = show_greensky(a)
+    if z!= None:
+         print('Bot: ', z)
+         spoke = 1 
     
     if spoke == 0:
         print('Bot: ', analyze(a))
