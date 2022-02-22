@@ -231,8 +231,8 @@ def show_bridge(sentence):
 
 # Example: check for words "architecture" and "style" and respond to it. 
 def show_canal_houses(sentence):
-    img = cv2.imread('ansterdam.jpeg')
-    cropped_img = img[100:500, 150:900]
+    img = cv2.imread('amsterdam.jpeg')
+    cropped_img = img[80:500, 150:900]
     img_rgb = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2RGB)
     KEYPHRASES = ["architecture", "architecture?", "style", "style?"]
     for word in sentence.split(" "):
