@@ -143,17 +143,52 @@ def show_city(sentence):
            plt.imshow(img_rgb)
            plt.show()
            return "Which city do you want to see?"
-       
+
+# Example: check for a word "Florence" and respond to it. 
 def show_elephant(sentence):
-    img = cv2.imread('amsterdam.jpeg')
+    img = cv2.imread('florence.jpeg')
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    KEYPHRASES = ["image", "seoul" ]
+    KEYPHRASES = ["florence", "Florence", "Florence?", "florence?"]
     for word in sentence.split(" "):
        if word in KEYPHRASES:
            plt.imshow(img_rgb)
            plt.show()
-           return "check the plots"
-          
+           return "Check the plots!"
+
+# Example: check for a word "London" and respond to it. 
+def show_elephant(sentence):
+    img = cv2.imread('london.jpeg')
+    img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    KEYPHRASES = ["london", "London", "London?", "london?"]
+    for word in sentence.split(" "):
+       if word in KEYPHRASES:
+           plt.imshow(img_rgb)
+           plt.show()
+           return "Check the plots!"
+
+# Example: check for a word "Seoul" and respond to it. 
+def show_elephant(sentence):
+    img = cv2.imread('seoul.jpeg')
+    img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    KEYPHRASES = ["seoul", "Seoul", "Seoul?", "seoul?"]
+    for word in sentence.split(" "):
+       if word in KEYPHRASES:
+           plt.imshow(img_rgb)
+           plt.show()
+           return "Check the plots!"
+       
+# Example: check for a word "New York" and respond to it. 
+def show_elephant(sentence):
+    img = cv2.imread('newyork.jpeg')
+    img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    KEYPHRASES = ["new york", "New York", "New York?", "new york?"]
+    for word in sentence.split(" "):
+       if word in KEYPHRASES:
+           plt.imshow(img_rgb)
+           plt.show()
+           return "Check the plots!"
+       
+
    
 # Reflections swap the users pronouns back at them. For instance, if the user
 # says: "I need you". The response will flip "I -> you", "you -> me", so the 
