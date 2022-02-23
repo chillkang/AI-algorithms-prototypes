@@ -186,7 +186,7 @@ def show_amsterdam(sentence):
            plt.show()
            return "Check the plots!"
        
-# Example: check for words "London" and "weather" respond to it. 
+# Example: check for a word "weather" and respond to it. 
 def show_weather(sentence):
     img_gray = cv2.imread('london.jpeg', cv2.IMREAD_GRAYSCALE)
     img_rgb = cv2.cvtColor(img_gray, cv2.COLOR_BGR2RGB)
@@ -197,10 +197,10 @@ def show_weather(sentence):
            plt.show()
            return "It's very foggy. You might need an umbrella today."
       
-# Example: check for words "green" and respond to it. 
+# Example: check for words "green" and "sky" and respond to it. 
 def show_greensky(sentence):
     img_green = cv2.imread('london.jpeg', cv2.IMREAD_GRAYSCALE)
-    KEYPHRASES = ["green", "green?"]
+    KEYPHRASES = ["green", "green?", "sky", "sky?"]
     for word in sentence.split(" "):
        if word in KEYPHRASES:
            plt.imshow(img_green)
@@ -229,7 +229,7 @@ def show_bridge(sentence):
           plt.show()
           return "It's the Ponte Vecchio. It was built in the 14th century."
 
-# Example: check for words "architecture" and "style" and respond to it. 
+# Example: check for words "architecture" or "style" and respond to it. 
 def show_canal_houses(sentence):
     img = cv2.imread('amsterdam.jpeg')
     cropped_img = img[80:500, 150:900]
