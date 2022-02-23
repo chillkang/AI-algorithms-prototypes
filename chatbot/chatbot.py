@@ -6,8 +6,9 @@
 Created on Tue Mar 17 10:39:20 2020
 
 @author: surenjayasuriy
+@added new functionality: seulkeekang
 """
-import nltk
+#import dependencies for natural language and image processing 
 import random
 import re
 from nltk.corpus import wordnet, swadesh, names
