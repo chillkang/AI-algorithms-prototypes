@@ -53,7 +53,7 @@ def check_for_cat(sentence):
 # Example: get your chatbot to tell a story. The \n command
 # starts a new line (useful to make the ouptut readable.)
 def tellstory(sentence):
-    KEYPHRASES = ["story", "story."]
+    KEYPHRASES = ["story", "story?"]
     for word in sentence.split(" "):
         if word in KEYPHRASES:
             return "Here is my story.. \n Once upon a midnight dreary, while I pondered, weak and weary,\n Over many a quaint and curious volume of forgotten lore,--\n While I nodded, nearly napping, suddenly there came a tapping,\n As of some one gently rapping, rapping at my chamber door.\n 'T is some visitor.' I muttered, tapping at my chamber door--\n Only this, and nothing more.\n"
@@ -91,7 +91,7 @@ def translate(sentence):
         
 # Example: get your chatbot to tell you a list of books it read.
 def tell_booktitle(sentence):
-    KEYPHRASES = ["text", "books", "texts", "a list of books", "books?", "read?" ]
+    KEYPHRASES = ["text", "books", "texts", "a list of books", "books?", "read?"]
     for word in sentence.split(" "):
         if word in KEYPHRASES:
             return texts()
@@ -105,7 +105,7 @@ def show_love(sentence):
        
 # Example: get your chatbot to show how it looks like.        
 def look_like(sentence):
-    KEYPHRASES = ["how do you look like", "look like", "show your body", "your body", "look"]
+    KEYPHRASES = ["how do you look like", "body", "look"]
     for word in sentence.split(" "):
        if word in KEYPHRASES:
            return "  [00] \n      /| \U0001F497 |\  \n        d  b  "	
@@ -130,7 +130,7 @@ def show_gender(sentence):
     featuresets = [(gender_features(n), gender) for (n, gender) in labeled_names]
     train_set, test_set = featuresets[500:], featuresets[:500]
     classifier = nltk.NaiveBayesClassifier.train(train_set)
-    KEYPHRASES = ["gender", "gender of this name", "male?", "female?"]
+    KEYPHRASES = ["gender", "name", "male?", "female?"]
     for word in sentence.split(" "):
         if word in KEYPHRASES:
             return classifier.classify(gender_features('Wally'))
